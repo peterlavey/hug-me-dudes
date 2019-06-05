@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://stages/resources/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://stages/Stage1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stages/resources/Spike.gd" type="Script" id=3]
+[ext_resource path="res://sprites/icon.png" type="Texture" id=4]
+[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="Stage" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65539, 0, 0, 65540, 0, 0, 131075, 0, 0, 131076, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 262147, 0, 0 )
+
+[node name="TileMap2" parent="." instance=ExtResource( 2 )]
+
+[node name="Spike" type="StaticBody2D" parent="."]
+position = Vector2( 160, 224 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spike"]
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
