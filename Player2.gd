@@ -11,7 +11,7 @@ var currentCollider = ""
 
 func _ready():
 	pass
-	
+
 func _physics_process(delta):
 	var friction = false
 	motion.y += GRAVITY
