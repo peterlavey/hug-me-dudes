@@ -1,4 +1,4 @@
-extends Node
+class_name Status extends Node
 
 # Declare member variables here. Examples:
 # var a = 2

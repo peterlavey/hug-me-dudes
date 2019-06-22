@@ -12,4 +12,6 @@ func _ready():
 	
 	print(player._name)
 	set_process(true)
+	
+	print(player._status)
 
