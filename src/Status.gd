@@ -1,8 +1,5 @@
-class_name Status extends Node
+extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export var _health:int = 0 
 export var _isDead:bool = false
 export var _isAlive:bool = true
