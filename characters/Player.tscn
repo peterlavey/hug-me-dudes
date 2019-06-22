@@ -1,20 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/icon.png" type="Texture" id=2]
+[ext_resource path="res://characters/Ronald.png" type="Texture" id=2]
+[ext_resource path="res://characters/Idle1.png" type="Texture" id=3]
+[ext_resource path="res://characters/Idle2.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="AnimatedTexture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 352, 128 )
+position = Vector2( 395.13, 159 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
+normal_map = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+visible = false
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "Idle"
