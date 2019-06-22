@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
+"base": "Node",
+"class": "Status",
+"language": "GDScript",
+"path": "res://Node.gd"
+} ]
 _global_script_class_icons={
-
+"Player": "",
+"Status": ""
 }
 
 [application]

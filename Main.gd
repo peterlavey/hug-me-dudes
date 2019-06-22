@@ -13,5 +13,5 @@ func _ready():
 	print(player._name)
 	set_process(true)
 	
-	print(player._status)
+	print(player._status._health)
 

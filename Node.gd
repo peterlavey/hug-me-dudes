@@ -1,4 +1,4 @@
-extends Node
+class_name Status extends Node
 
 export var _health:int = 0 
 export var _isDead:bool = false
