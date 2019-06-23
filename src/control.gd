@@ -11,4 +11,16 @@ export var currentCollider = ""
 
 func _ready():
 	pass
+
+func start():
+	var friction = false
+	motion.y += gravity
+	
+	if Input.is_action_pressed("ui_right"):
+		print(motion.x)
+		motion.x = min(motion.x + acceleration, maxSpeed)
+	elif Input.is_action_pressed("ui_left"):
+		motion.x = max(motion.x - acceleration, -maxSpeed)
+	else:
+		friction = true
 	

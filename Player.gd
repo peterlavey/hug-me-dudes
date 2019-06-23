@@ -4,10 +4,13 @@ class_name Player extends Node
 export var id:int = 0
 export var nickname:String = 'Default'
 export var Status = preload("res://src/status.gd")
+#export var Body = preload("res://src/body.gd")
+
 export var status:GDScript = Status.new()
+#export var body:KinematicBody2D = Body.new()
 
 func _ready():
-
+	
 	pass
 
 func set_nickname(_nickname: String) -> void:
