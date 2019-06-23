@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player.gd"
 }, {
-"base": "Node",
+"base": "GDScript",
 "class": "Status",
 "language": "GDScript",
-"path": "res://Node.gd"
+"path": "res://src/status.gd"
 } ]
 _global_script_class_icons={
 "Player": "",
