@@ -34,7 +34,3 @@ texture = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 585, 199 )
-
-[node name="Player" parent="Player" instance=ExtResource( 5 )]
-position = Vector2( -13, -107 )

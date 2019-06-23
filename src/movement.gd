@@ -1,26 +1,29 @@
 class_name Movement extends GDScript
 
-export var this = ''
-export var up = Vector2(0, -1)
-export var gravity = 20
-export var acceleration = 50
-export var maxSpeed = 200
-export var jumpWeight = -550
-export var motion = Vector2()
-export var currentCollider = ""
+const UP = Vector2(0, -1)
+const GRAVITY = 0
+const ACCELERARION = 50
+const MAX_SPEED = 200
+const JUMP_WEIGHT = -550
+
+var motion = Vector2()
+var currentCollider = ""
 
 func _ready():
 	pass
-
-func start():
+	
+func wasd_controller(delta):
 	var friction = false
-	motion.y += gravity
+	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
-		print(motion.x)
-		motion.x = min(motion.x + acceleration, maxSpeed)
+		motion.x = min(motion.x + ACCELERARION, MAX_SPEED)
 	elif Input.is_action_pressed("ui_left"):
-		motion.x = max(motion.x - acceleration, -maxSpeed)
+		motion.x = max(motion.x - ACCELERARION, -MAX_SPEED)
+	elif Input.is_action_pressed("ui_down"):
+		motion.y = min(motion.y + ACCELERARION, MAX_SPEED)
+	elif Input.is_action_pressed("ui_up"):
+		motion.y = max(motion.y - ACCELERARION, -MAX_SPEED)
 	else:
 		friction = true
-	
+		
