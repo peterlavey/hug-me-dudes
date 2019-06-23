@@ -1,13 +1,10 @@
 extends Node
 
-var test = preload("res://src/body.gd")
+#var test = preload("res://src/body.gd")
+var player_class = preload("res://src/Player.tscn")
 
 func _ready():
-	test = test.new()
-	
-	print(test.edad)
-
-	add_child(test)
-	
-	set_process(true)
+	var player = player_class.instance()
+	player.init_player()
+	add_child(player)
 
