@@ -9,17 +9,23 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GDScript",
+"class": "Movement",
+"language": "GDScript",
+"path": "res://src/control.gd"
+}, {
 "base": "Node",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
 }, {
-"base": "GDScript",
+"base": "Reference",
 "class": "Status",
 "language": "GDScript",
 "path": "res://src/status.gd"
 } ]
 _global_script_class_icons={
+"Movement": "",
 "Player": "",
 "Status": ""
 }
