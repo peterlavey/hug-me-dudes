@@ -5,6 +5,5 @@ var player_class = preload("res://src/Player.tscn")
 
 func _ready():
 	var player = player_class.instance()
-	player.init_player()
 	add_child(player)
 
