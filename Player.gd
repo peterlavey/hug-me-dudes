@@ -9,6 +9,7 @@ var body_class = preload("res://src/body.gd")
 
 export var status:GDScript = Status.new()
 
+#Romnal estoy voalo ayudame aaamiiigg....  
 func _init():
 	var body = body_class.new()
 	add_child(body)
