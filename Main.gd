@@ -1,21 +1,13 @@
 extends Node
 
-onready var player = preload("res://src/player.tscn")
-
+var test = preload("res://src/body.gd")
 
 func _ready():
-	player = player.instance()
+	test = test.new()
 	
-	print(player.nickname)
-	
-	player.set_nickname("Test")
-	
-	print(player.nickname)
-	print(player.status.health)
+	print(test.edad)
+
+	add_child(test)
 	
 	set_process(true)
-	
-	
-	
-	
 

@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "GDScript",
 "class": "Movement",
 "language": "GDScript",
-"path": "res://src/control.gd"
+"path": "res://src/movement.gd"
 }, {
 "base": "Node",
 "class": "Player",

@@ -1,17 +1,20 @@
 class_name Body extends KinematicBody2D
 
-export var Movement = preload("res://src/control.gd")
-export var controll:GDScript = Movement.new()
+#export var Movement = preload("res://src/movement.gd")
+#export var control:GDScript = Movement.new()
 var sprite:Sprite = Sprite.new()
 var texture:Texture = Texture.new()
+export var edad = 123
 
 func _ready():
 
 	pass
 	
 func _init():
-	sprite.texture = texture.set
+	print("Body instanciado")
+	#sprite.texture = texture.set
 	
 func _physics_process(delta):
-	controll.start()
-	controll.motion = move_and_slide(controll.motion, controll.up)
+	#control.start()
+	#control.motion = move_and_slide(control.motion, control.up)
+	pass
