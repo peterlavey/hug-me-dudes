@@ -1,6 +1,5 @@
-class_name PlayerScript extends Node2D
+class_name Player extends Node2D
 
-#test
 var Status = preload("res://src/status.gd")
 var body = preload("res://characters/Player.tscn")
 
@@ -9,13 +8,10 @@ export var nickname:String = 'Default'
 export var status:GDScript = Status.new()
 export var texture:StreamTexture
 
-func _init():
-
-	pass
-
 func _ready():
-	print(_id)
-	
+	create_player()
+
+func create_player():
 	body = body.instance()
 	body._id = _id
 	body.texture = texture

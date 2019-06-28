@@ -14,11 +14,7 @@ var sprite = Sprite.new()
 export var _id:int = 1
 
 func _ready():
-	sprite.set_texture(texture)
-	
-	add_child(sprite)
-	
-	print(_id)
+	load_texture()
 	pass
 	
 func _physics_process(delta):
@@ -55,4 +51,8 @@ func _onPlayerCollides():
 
 func _deathWith(killer):
 	if currentCollider == killer:
-		queue_free()	
+		queue_free()
+
+func load_texture():
+	sprite.set_texture(texture)
+	add_child(sprite)
