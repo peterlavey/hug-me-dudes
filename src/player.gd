@@ -1,4 +1,4 @@
-class_name PlayerScript extends Node
+class_name PlayerScript extends Node2D
 
 #test
 var Status = preload("res://src/status.gd")
