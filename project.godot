@@ -9,20 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Body",
-"language": "GDScript",
-"path": "res://src/body.gd"
-}, {
-"base": "GDScript",
-"class": "Movement",
-"language": "GDScript",
-"path": "res://src/movement.gd"
-}, {
 "base": "Node",
-"class": "Player",
+"class": "PlayerScript",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://src/player.gd"
 }, {
 "base": "GDScript",
 "class": "Status",
@@ -30,9 +20,7 @@ _global_script_classes=[ {
 "path": "res://src/status.gd"
 } ]
 _global_script_class_icons={
-"Body": "",
-"Movement": "",
-"Player": "",
+"PlayerScript": "",
 "Status": ""
 }
 
