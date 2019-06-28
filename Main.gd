@@ -1,19 +1,24 @@
 extends Node
 
-onready var player = preload("res://characters/Player.tscn")
-onready var stage = preload("res://stages/Stage1.tscn")
+var Player = load("res://src/player.gd")
+var Stage = preload("res://stages/Stage.tscn")
 
-var globalVar;
-
-func _ready():	
-	set_process(true)
-
-	add_child(player.instance())
-	test()
-
-	add_child(stage.instance())
-
-func test():
-	print("asdasdasd")
+func _ready():
+	var player1 = Player.new()
+	var player2 = Player.new()
+	var stage = Stage.instance()
 	
+	player1._id = 1
+	player1.texture = load("res://sprites/icon.png")
+	player1.position.x = 400
+	player1.position.y = 0
+	
+	player2._id = 2
+	player2.texture = load("res://sprites/icon2.png")
+	player2.position.x = 600
+	player2.position.y = 0
+	
+	add_child(stage)
+	add_child(player1)
+	add_child(player2)
 
