@@ -1,5 +1,6 @@
 class_name PlayerScript extends Node
 
+#test
 var Status = preload("res://src/status.gd")
 var body = preload("res://characters/Player.tscn")
 
