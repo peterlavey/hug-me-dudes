@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Diseases",
+"language": "GDScript",
+"path": "res://src/disease.gd"
+}, {
+"base": "Node2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/player.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/status.gd"
 } ]
 _global_script_class_icons={
+"Diseases": "",
 "Player": "",
 "Status": ""
 }
