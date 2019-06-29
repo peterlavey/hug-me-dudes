@@ -17,11 +17,9 @@ export var id = "1"
 
 func _ready():
 	load_texture()
-
+	add_to_group("players")
+	
 	pass
-
-func test2():
-	print("tytyty")
 	
 func _physics_process(delta):
 	var friction = false
@@ -69,4 +67,8 @@ func _getDesease():
 
 func load_texture():
 	sprite.set_texture(texture)
+	add_child(sprite)
+	
+func set_texture(newTexture):
+	sprite.set_texture(newTexture)
 	add_child(sprite)

@@ -16,7 +16,9 @@ func _process(delta) -> void:
 	pass
 	
 func set_desease() -> void:
-	print("TIMER")
+	var players = get_tree().get_nodes_in_group("players")
+	
+	players[0].set_texture(load("res://sprites/icon2.png"))
 	
 	pass
 

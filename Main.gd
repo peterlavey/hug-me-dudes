@@ -26,7 +26,11 @@ func _ready():
 	add_child(stage)
 	add_child(player1)
 	add_child(player2)
-	add_child(disease)
 	
+	#player1.load_texture(load("res://sprites/icon2.png"))
+	#player1.body.texture = load("res://sprites/icon2.png")
+	#print(get_child(1))
+	#get_child(1).texture = load("res://sprites/icon2.png")
+	add_child(disease)
 	
 
