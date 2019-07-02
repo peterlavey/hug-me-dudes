@@ -19,7 +19,7 @@ func _ready():
 	player2.animation = load("res://characters/Peter.tscn")
 	player2.position.x = 600
 	player2.position.y = 0
-	player2.modulate = "ff7098"
+	#player2.modulate = "ff7098"
 	
 	disease.position.x = 450
 	disease.position.y = 50
@@ -32,6 +32,6 @@ func _ready():
 	#player1.body.texture = load("res://sprites/icon2.png")
 	#print(get_child(1))
 	#get_child(1).texture = load("res://sprites/icon2.png")
-	#add_child(disease)
+	add_child(disease)
 	
 

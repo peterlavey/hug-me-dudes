@@ -18,7 +18,8 @@ func _process(delta) -> void:
 func set_desease() -> void:
 	var players = get_tree().get_nodes_in_group("players")
 	
-	players[0].set_texture(load("res://sprites/icon2.png"))
+	players[0].modulate = "99FF99"
+	#players[0].set_texture(load("res://sprites/icon2.png"))
 	
 	pass
 
