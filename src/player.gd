@@ -6,7 +6,7 @@ var body = preload("res://characters/Player.tscn")
 export onready var _id:int
 export var nickname:String = 'Default'
 export var status:GDScript = Status.new()
-export var texture:StreamTexture
+export var animation:PackedScene
 
 func _ready():
 	create_player()
@@ -14,6 +14,6 @@ func _ready():
 func create_player():
 	body = body.instance()
 	body._id = _id
-	body.texture = texture
+	body.animation = animation
 
 	add_child(body)
