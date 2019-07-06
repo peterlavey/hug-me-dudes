@@ -10,14 +10,29 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "Diseases",
+"class": "Disease",
 "language": "GDScript",
 "path": "res://src/disease.gd"
+}, {
+"base": "GDScript",
+"class": "DiseaseRandomizer",
+"language": "GDScript",
+"path": "res://src/diseaseRandomizer.gd"
+}, {
+"base": "Node2D",
+"class": "FulminatingDiarrhea",
+"language": "GDScript",
+"path": "res://src/fulminatingDiarrhea.gd"
 }, {
 "base": "Node2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/player.gd"
+}, {
+"base": "Node2D",
+"class": "SpontaneousCombustion",
+"language": "GDScript",
+"path": "res://src/spontaneousCombustion.gd"
 }, {
 "base": "GDScript",
 "class": "Status",
@@ -25,8 +40,11 @@ _global_script_classes=[ {
 "path": "res://src/status.gd"
 } ]
 _global_script_class_icons={
-"Diseases": "",
+"Disease": "",
+"DiseaseRandomizer": "",
+"FulminatingDiarrhea": "",
 "Player": "",
+"SpontaneousCombustion": "",
 "Status": ""
 }
 

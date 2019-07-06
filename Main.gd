@@ -2,13 +2,15 @@ extends Node
 
 var Player = load("res://src/player.gd")
 var Stage = preload("res://stages/Stage.tscn")
-var Disease = load("res://src/disease.gd")
+var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
+#var Disease = load("res://src/disease.gd")
+#var SpontaneousCombustion = load("res://src/spontaneousCombustion.gd")
 
 func _ready():
 	var player1 = Player.new()
 	var player2 = Player.new()
 	var stage = Stage.instance()
-	var disease = Disease.new()
+	var disease = DiseaseRandomizer.get_disease()
 	
 	player1._id = 1
 	player1.animation = load("res://characters/Peter.tscn")

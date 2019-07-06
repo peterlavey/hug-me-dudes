@@ -1,4 +1,4 @@
-class_name Diseases extends Node2D
+class_name Disease extends Node2D
 
 var input:TextEdit
 var timer:Timer
@@ -12,14 +12,6 @@ func _init():
 
 func _process(delta) -> void:
 	show_time_left()
-	
-	pass
-	
-func set_desease() -> void:
-	var players = get_tree().get_nodes_in_group("players")
-	
-	players[0].modulate = "99FF99"
-	#players[0].set_texture(load("res://sprites/icon2.png"))
 	
 	pass
 
@@ -40,12 +32,15 @@ func config_input() -> void:
 
 func config_timer() -> void:
 	timer = Timer.new()
-	#timer.set_autostart(true)
 	timer.set_one_shot(true)
-	timer.set_wait_time(3)
 	timer.connect("timeout", self, "set_desease")
+	
+	pass
+
+func start(seconds:int) -> void:
+	timer.set_wait_time(seconds)
 	timer.start()
 	
 	add_child(timer)
-	
 	pass
+	
