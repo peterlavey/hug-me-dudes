@@ -3,7 +3,13 @@ class_name FulminatingDiarrhea extends "res://src/disease.gd"
 const LIFE_EXPECTANCY:int = 2
 
 func _ready():
+	set_desease()
 	start(LIFE_EXPECTANCY)
+	pass
+
+func death() -> void:
+	print("DEATH")
+	
 	pass
 
 func set_desease() -> void:

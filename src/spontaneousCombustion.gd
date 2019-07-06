@@ -4,7 +4,13 @@ var fire = preload("res://particles/Fire.tscn")
 const LIFE_EXPECTANCY:int = 3
 
 func _ready():
+	set_desease()
 	start(LIFE_EXPECTANCY)
+	pass
+
+func death() -> void:
+	print("DEATH")
+	
 	pass
 
 func set_desease() -> void:
