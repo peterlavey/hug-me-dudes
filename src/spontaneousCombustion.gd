@@ -1,5 +1,6 @@
 class_name SpontaneousCombustion extends "res://src/disease.gd"
 
+var fire = preload("res://particles/Fire.tscn")
 const LIFE_EXPECTANCY:int = 3
 
 func _ready():
@@ -9,7 +10,6 @@ func _ready():
 func set_desease() -> void:
 	var players = get_tree().get_nodes_in_group("players")
 	
-	players[0].modulate = "dd6516"
-	#players[0].set_texture(load("res://sprites/icon2.png"))
+	players[0].add_child(fire.instance())
 	
 	pass

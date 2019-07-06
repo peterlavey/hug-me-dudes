@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.0572289, 0.135542, 0.198795, 0.569277, 0.716867, 0.849398 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.811137, 0.778538, 0.289552, 1, 0.789063, 0.752653, 0.206512, 1, 0.914063, 0.691461, 0.164246, 1, 0.945313, 0.0900655, 0.0480042, 1, 0.943026, 0.13407, 0.0565096, 1, 0.964844, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.7464 ), 0.0, -0.811816, 0, 0, Vector2( 0.989777, 0.298717 ), -1.10697, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 40, 20, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 15.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="Fire" type="Particles2D"]
+modulate = Color( 1, 1, 1, 0.788235 )
+position = Vector2( -1.16644, -22.1606 )
+rotation = -1.5708
+amount = 700
+lifetime = 0.5
+randomness = 0.3
+local_coords = false
+process_material = SubResource( 5 )
