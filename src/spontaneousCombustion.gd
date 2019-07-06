@@ -10,12 +10,9 @@ func _ready():
 
 func death() -> void:
 	print("DEATH")
-	
+	afflicted.queue_free()
 	pass
 
 func set_desease() -> void:
-	var players = get_tree().get_nodes_in_group("players")
-	
-	players[0].add_child(fire.instance())
-	
+	afflicted.add_child(fire.instance())
 	pass

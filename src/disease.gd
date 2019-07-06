@@ -3,6 +3,7 @@ class_name Disease extends Node2D
 var input:TextEdit
 var timer:Timer
 var timeLeft:float
+var afflicted
 
 func _init():
 	config_timer()

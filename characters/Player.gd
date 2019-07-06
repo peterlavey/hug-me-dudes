@@ -51,7 +51,6 @@ func _physics_process(delta):
 	
 	_onPlayerCollides()
 	_deathWith("Spike")
-	_getDesease()
 	
 	pass
 
@@ -62,13 +61,6 @@ func _onPlayerCollides():
 func _deathWith(killer):
 	if currentCollider == killer:
 		queue_free()
-
-func _getDesease():
-	if currentCollider == "Desease":
-		GRAVITY = 20
-		ACCELERARION = 10
-		MAX_SPEED = 80
-		JUMP_WEIGHT = -700
 
 func load_texture():
 	_animation = animation.instance()

@@ -9,13 +9,9 @@ func _ready():
 
 func death() -> void:
 	print("DEATH")
-	
+	afflicted.queue_free()
 	pass
 
 func set_desease() -> void:
-	var players = get_tree().get_nodes_in_group("players")
-	
-	players[0].modulate = "4d732a"
-	#players[0].set_texture(load("res://sprites/icon2.png"))
-	
+	afflicted.modulate = "4d732a"
 	pass
