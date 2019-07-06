@@ -7,13 +7,28 @@ var MAX_SPEED = 200
 var JUMP_WEIGHT = -550
 
 var motion = Vector2()
-var currentCollider = ""
+var currentCollider
 
 export var animation:PackedScene
 var _animation:AnimatedSprite = AnimatedSprite.new()
+var Status = load("res://src/status.gd")
 
 export var _id:int = 1
 export var id = "1"
+export var status:GDScript = Status.new()
+var disease:Node2D
+var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
+
+func set_disease(_disease):
+	print(str(_id))
+	print(_disease)
+	disease = _disease
+	
+	status.isAfflicted = true
+	disease.afflicted = self
+	#disease.start_effects()
+	#disease.start(9)
+	add_child(disease)
 
 func _ready():
 	load_texture()
@@ -50,16 +65,35 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	
 	_onPlayerCollides()
-	_deathWith("Spike")
+	#deathWith("Spike")
 	
 	pass
 
 func _onPlayerCollides():
 	for i in get_slide_count():
-    	currentCollider = get_slide_collision(i).collider.name	
+		currentCollider = get_slide_collision(i).collider
+		if currentCollider.name == "Player" && status.isAfflicted:
+				infect()
 
-func _deathWith(killer):
-	if currentCollider == killer:
+func cured():
+	disease.remove_effects()
+	status.isAfflicted = false
+	disease.queue_free()
+	#disease = null
+	pass
+
+func infect():
+	var _disease = DiseaseRandomizer.get_disease()
+	
+	_disease.position.x = -20
+	_disease.position.y = -150
+	currentCollider.set_disease(_disease)
+	
+	cured()
+	pass
+
+func deathWith(killer):
+	if currentCollider.name == killer:
 		queue_free()
 
 func load_texture():

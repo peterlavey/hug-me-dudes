@@ -3,7 +3,7 @@ class_name Disease extends Node2D
 var input:TextEdit
 var timer:Timer
 var timeLeft:float
-var afflicted
+var afflicted:KinematicBody2D
 
 func _init():
 	config_timer()
@@ -24,7 +24,7 @@ func show_time_left() -> void:
 
 func config_input() -> void:
 	input = TextEdit.new()
-	input.rect_size.x = 100
+	input.rect_size.x = 50
 	input.rect_size.y = 20
 	
 	add_child(input)
@@ -39,6 +39,8 @@ func config_timer() -> void:
 	pass
 
 func start(seconds:int) -> void:
+	#config_timer()
+	#config_input()
 	timer.set_wait_time(seconds)
 	timer.start()
 	

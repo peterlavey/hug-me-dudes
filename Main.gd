@@ -36,8 +36,8 @@ func _ready():
 func config_timer() -> void:
 	timer = Timer.new()
 	timer.set_one_shot(true)
-	timer.set_wait_time(4)
-	timer.connect("timeout", self, "set_desease")
+	timer.set_wait_time(1)
+	timer.connect("timeout", self, "set_disease")
 	
 	timer.start()
 	
@@ -45,13 +45,11 @@ func config_timer() -> void:
 	
 	pass
 
-func set_desease() -> void:
+func set_disease()-> void:
 	var disease = DiseaseRandomizer.get_disease()
 	var players = get_tree().get_nodes_in_group("players")
 	
-	disease.position.x = 450
-	disease.position.y = 50
-	disease.afflicted = players[randi() % players.size()]
+	disease.position.x = -20
+	disease.position.y = -150
 	
-	add_child(disease)
-	pass
+	players[randi() % players.size()].set_disease(disease)

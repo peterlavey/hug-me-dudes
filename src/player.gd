@@ -1,11 +1,9 @@
 class_name Player extends Node2D
 
-var Status = preload("res://src/status.gd")
 var body = preload("res://characters/Player.tscn")
 
 export onready var _id:int
 export var nickname:String = 'Default'
-export var status:GDScript = Status.new()
 export var animation:PackedScene
 
 func _ready():

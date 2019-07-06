@@ -9,10 +9,9 @@ var DISEASES:Array = [
 ]
 
 func get_disease()-> Disease:
-	#return DISEASES[random()].new()
-	return DISEASES[0].new()
+	return DISEASES[random()].new()
 	pass
 
 func random()-> int:
-	return randi() % DISEASES.size()
+	return 0#randi() % DISEASES.size()
 	pass

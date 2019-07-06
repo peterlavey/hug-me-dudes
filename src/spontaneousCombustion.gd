@@ -1,10 +1,12 @@
 class_name SpontaneousCombustion extends "res://src/disease.gd"
 
-var fire = preload("res://particles/Fire.tscn")
-const LIFE_EXPECTANCY:int = 3
+var Fire = preload("res://particles/Fire.tscn")
+var fire
+const LIFE_EXPECTANCY:int = 6
 
 func _ready():
-	set_desease()
+	fire = Fire.instance()
+	start_effects()
 	start(LIFE_EXPECTANCY)
 	pass
 
@@ -13,6 +15,10 @@ func death() -> void:
 	afflicted.queue_free()
 	pass
 
-func set_desease() -> void:
-	afflicted.add_child(fire.instance())
+func remove_effects() -> void:
+	fire.queue_free()
+	pass
+
+func start_effects() -> void:
+	afflicted.add_child(fire)
 	pass
