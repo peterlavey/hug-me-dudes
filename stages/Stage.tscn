@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://stages/resources/AutoTile.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/resources/Spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stages/resources/wood.tres" type="TileSet" id=3]
 
 [node name="Stage" type="Node2D"]
 
@@ -13,3 +14,7 @@ tile_data = PoolIntArray( 327683, 0, 1, 327684, 0, 65536, 327685, 0, 65536, 3276
 [node name="Spike" parent="." instance=ExtResource( 2 )]
 position = Vector2( 523.901, 578.57 )
 scale = Vector2( 20, 1 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1

@@ -1,10 +1,9 @@
 extends Node
 
 var Player = load("res://src/player.gd")
-var Stage = preload("res://stages/Stage.tscn")
+var Stage = preload("res://stages/Ship.tscn")
 var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
 var song = preload("res://sounds/song.ogg")
-var spotifyAPI = SpotifyAPI.new()
 
 var timer:Timer
 
@@ -19,13 +18,13 @@ func _ready():
 	
 	player1._id = 1
 	player1.animation = load("res://characters/Peter.tscn")
-	player1.position.x = 400
-	player1.position.y = 0
+	player1.position.x = 300
+	player1.position.y = 200
 	
 	player2._id = 2
 	player2.animation = load("res://characters/Peter.tscn")
-	player2.position.x = 600
-	player2.position.y = 0
+	player2.position.x = 900
+	player2.position.y = 200
 	
 	add_child(stage)
 	add_child(player1)
