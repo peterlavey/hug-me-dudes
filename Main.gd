@@ -4,6 +4,7 @@ var Player = load("res://src/player.gd")
 var Stage = preload("res://stages/Stage.tscn")
 var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
 var song = preload("res://sounds/song.ogg")
+var spotifyAPI = SpotifyAPI.new()
 
 var timer:Timer
 
