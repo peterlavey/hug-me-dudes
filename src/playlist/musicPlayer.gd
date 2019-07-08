@@ -52,6 +52,9 @@ func config_input() -> void:
 	pass
 
 func _process(delta):
-	if get_playback_position() > stream.get_length() -0.05:
+	if song_is_finished():
 		next_song()
 	pass
+
+func song_is_finished()-> bool:
+	return get_playback_position() > stream.get_length() -0.05
