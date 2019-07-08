@@ -17,17 +17,13 @@ export var _id:int = 1
 export var id = "1"
 export var status:GDScript = Status.new()
 var disease:Node2D
-var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
+var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
 
 func set_disease(_disease):
-	print(str(_id))
-	print(_disease)
 	disease = _disease
-	
 	status.isAfflicted = true
 	disease.afflicted = self
-	#disease.start_effects()
-	#disease.start(9)
+
 	add_child(disease)
 
 func _ready():
@@ -61,11 +57,9 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 	
-	
 	motion = move_and_slide(motion, UP)
 	
 	_onPlayerCollides()
-	#deathWith("Spike")
 	
 	pass
 
@@ -79,7 +73,6 @@ func cured():
 	disease.remove_effects()
 	status.isAfflicted = false
 	disease.queue_free()
-	#disease = null
 	pass
 
 func infect():

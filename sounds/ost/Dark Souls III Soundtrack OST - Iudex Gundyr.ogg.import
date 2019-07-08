@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggstr"
+
+[deps]
+
+source_file="res://sounds/ost/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg"
+dest_files=[ "res://.import/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

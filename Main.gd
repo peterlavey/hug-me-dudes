@@ -1,9 +1,11 @@
 extends Node
 
-var Player = load("res://src/player.gd")
+var Player = load("res://src/player/player.gd")
 var Stage = preload("res://stages/Ship.tscn")
-var DiseaseRandomizer = load("res://src/diseaseRandomizer.gd").new()
+var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
 var song = preload("res://sounds/song.ogg")
+var Playlist = load("res://src/playlist/playlist.gd")
+var MusicPlayer = load("res://src/musicPlayer.gd")
 
 var timer:Timer
 
@@ -11,10 +13,9 @@ func _ready():
 	var player1 = Player.new()
 	var player2 = Player.new()
 	var stage = Stage.instance()
-	var audioStream = AudioStreamPlayer2D.new()
 	
-	audioStream.stream = song
-	#audioStream.autoplay = true
+	var playlist = Playlist.new()
+	playlist.play()
 	
 	player1._id = 1
 	player1.animation = load("res://characters/Peter.tscn")
@@ -29,7 +30,7 @@ func _ready():
 	add_child(stage)
 	add_child(player1)
 	add_child(player2)
-	add_child(audioStream)
+	add_child(playlist)
 	
 	config_timer()
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hard Trance Techno Rave Music- trancElovE.ogg-6b0db65483b5857c19b6098cde8d5cfe.oggstr"
+
+[deps]
+
+source_file="res://sounds/ost/Hard Trance Techno Rave Music- trancElovE.ogg"
+dest_files=[ "res://.import/Hard Trance Techno Rave Music- trancElovE.ogg-6b0db65483b5857c19b6098cde8d5cfe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
