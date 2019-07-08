@@ -19,14 +19,14 @@ func set_songs(_songs)-> void:
 
 func next_song()-> void:
 	stop()
+	set_next_song()
 	start()
 	pass
 
 func start():
 	set_current_song()
 	load_song()
-	play(stream.get_length())
-	verify_list()
+	play()
 
 func set_current_song():
 	currentSong = songs[currentIndex]
@@ -36,10 +36,10 @@ func load_song():
 	var song = load('res://sounds/ost/' + currentSong)
 	stream = song
 
-func verify_list():
+func set_next_song():
 	if currentIndex < songs.size() -1:
 		currentIndex += 1
-	else:
+	else:	
 		currentIndex = 0
 
 func config_input() -> void:
