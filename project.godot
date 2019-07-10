@@ -78,6 +78,11 @@ config/name="Hug me dudes"
 run/main_scene="res://stages/Stage.tscn"
 config/icon="res://sprites/icon.png"
 
+[display]
+
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+
 [input]
 
 ui_left_2={

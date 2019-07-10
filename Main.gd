@@ -10,6 +10,7 @@ var MusicPlayer = load("res://src/musicPlayer.gd")
 var timer:Timer
 
 func _ready():
+	get_viewport().set_size_override(true, Vector2(1366, 768))
 	var player1 = Player.new()
 	var player2 = Player.new()
 	var stage = Stage.instance()
