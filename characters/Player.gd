@@ -29,15 +29,19 @@ func set_disease(_disease):
 func _ready():
 	load_texture()
 	add_to_group("players")
-	
 	pass
 	
 func _physics_process(delta):
 	var friction = false
 	motion.y += GRAVITY
 	
+	#if Input.is_action_just_pressed("ui_kick_" + str(_id)):
+	#	_animation.play("Kick")
+	#	status.isAttacking = true
+	
 	if Input.is_action_pressed("ui_right_" + str(_id)):
 		motion.x = min(motion.x + ACCELERARION, MAX_SPEED)
+
 		_animation.play("Run")
 		_animation.flip_h = false
 	elif Input.is_action_pressed("ui_left_" + str(_id)):
@@ -88,6 +92,9 @@ func infect():
 func deathWith(killer):
 	if currentCollider.name == killer:
 		queue_free()
+
+func on_attack_finish():
+	print(1)
 
 func load_texture():
 	_animation = animation.instance()
