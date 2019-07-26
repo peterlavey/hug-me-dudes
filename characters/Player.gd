@@ -93,7 +93,7 @@ func infect():
 func dead()-> void:
 	status.isAlive = false
 	emit_signal("on_died")
-	#queue_free()
+	queue_free()
 
 func deathWith(killer):
 	if currentCollider.name == killer:

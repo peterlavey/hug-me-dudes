@@ -13,8 +13,6 @@ var numberOfPlayers:int
 
 var timer:Timer
 
-var gameOver:bool = false
-
 func _ready():
 	init()
 
@@ -46,6 +44,8 @@ func add_stage()-> void:
 func add_players()-> void:
 	var player1 = Player.new()
 	var player2 = Player.new()
+	var player3 = Player.new()
+	var player4 = Player.new()
 	
 	player1._id = 1
 	player1.animation = load("res://characters/Peter.tscn")
@@ -54,14 +54,27 @@ func add_players()-> void:
 	
 	player2._id = 2
 	player2.animation = load("res://characters/Peter.tscn")
-	player2.position.x = 900
+	player2.position.x = 500
 	player2.position.y = 200
+	
+	player3._id = 3
+	player3.animation = load("res://characters/Peter.tscn")
+	player3.position.x = 700
+	player3.position.y = 200
+	
+	player4._id = 4
+	player4.animation = load("res://characters/Peter.tscn")
+	player4.position.x = 900
+	player4.position.y = 200
 	
 	add_child(player1)
 	add_child(player2)
+	add_child(player3)
+	add_child(player4)
 	
 	players = get_tree().get_nodes_in_group("players")
 	numberOfPlayers = players.size()
+	print(numberOfPlayers)
 
 func config_timer()-> void:
 	timer = Timer.new()
@@ -86,13 +99,10 @@ func config_signals()-> void:
 		player.connect("on_died", self, "on_player_died")
 
 func on_player_died()-> void:
-	for player in players:
-		if !player.status.isAlive:
-			numberOfPlayers -= 1
-			
-			if numberOfPlayers == 1 && !gameOver:
-				game_over()
-				break
+	numberOfPlayers -= 1
+	
+	if numberOfPlayers == 1:
+		game_over()
 
 func game_over()-> void:
 	get_tree().reload_current_scene()

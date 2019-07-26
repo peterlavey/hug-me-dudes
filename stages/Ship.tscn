@@ -26,5 +26,5 @@ format = 1
 tile_data = PoolIntArray( 262146, 6, 0, 262152, 6, 0, 262158, 6, 0, 327684, 0, 0 )
 
 [node name="Spike" parent="." instance=ExtResource( 4 )]
-position = Vector2( 546.574, 694.388 )
+position = Vector2( 521.25, 813.217 )
 scale = Vector2( 22, 1 )
