@@ -9,7 +9,6 @@ var stage
 var playlist
 
 var players:Array
-var numberOfPlayers:int
 
 var timer:Timer
 
@@ -73,8 +72,6 @@ func add_players()-> void:
 	add_child(player4)
 	
 	players = get_tree().get_nodes_in_group("players")
-	numberOfPlayers = players.size()
-	print(numberOfPlayers)
 
 func config_timer()-> void:
 	timer = Timer.new()
@@ -98,11 +95,14 @@ func config_signals()-> void:
 	for player in players:
 		player.connect("on_died", self, "on_player_died")
 
-func on_player_died()-> void:
-	numberOfPlayers -= 1
+func on_player_died(player:KinematicBody2D, hadDisease:bool)-> void:
+	players.erase(player)
 	
-	if numberOfPlayers == 1:
+	if players.size() == 1:
 		game_over()
+	
+	if hadDisease:
+		set_random_disease()
 
 func game_over()-> void:
 	get_tree().reload_current_scene()

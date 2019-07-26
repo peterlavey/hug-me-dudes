@@ -92,7 +92,7 @@ func infect():
 
 func dead()-> void:
 	status.isAlive = false
-	emit_signal("on_died")
+	emit_signal("on_died", self, status.isAfflicted)
 	queue_free()
 
 func deathWith(killer):
