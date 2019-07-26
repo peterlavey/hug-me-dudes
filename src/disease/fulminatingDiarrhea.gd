@@ -7,8 +7,8 @@ func _ready():
 	start(LIFE_EXPECTANCY)
 	pass
 
-func death() -> void:
-	afflicted.queue_free()
+func dead() -> void:
+	afflicted.dead()
 	pass
 
 func remove_effects() -> void:

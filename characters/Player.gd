@@ -19,6 +19,8 @@ export var status:GDScript = Status.new()
 var disease:Node2D
 var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
 
+signal on_died
+
 func set_disease(_disease):
 	disease = _disease
 	status.isAfflicted = true
@@ -29,15 +31,12 @@ func set_disease(_disease):
 func _ready():
 	load_texture()
 	add_to_group("players")
+	
 	pass
 	
 func _physics_process(delta):
 	var friction = false
 	motion.y += GRAVITY
-	
-	#if Input.is_action_just_pressed("ui_kick_" + str(_id)):
-	#	_animation.play("Kick")
-	#	status.isAttacking = true
 	
 	if Input.is_action_pressed("ui_right_" + str(_id)):
 		motion.x = min(motion.x + ACCELERARION, MAX_SPEED)
@@ -63,15 +62,17 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, UP)
 	
-	_onPlayerCollides()
+	on_player_collides()
 	
 	pass
 
-func _onPlayerCollides():
+func on_player_collides():
 	for i in get_slide_count():
 		currentCollider = get_slide_collision(i).collider
 		if currentCollider.name == "Player" && status.isAfflicted:
-				infect()
+			infect()
+		elif currentCollider.name == "Spike" && status.isAlive:
+			dead()
 
 func cured():
 	disease.remove_effects()
@@ -89,12 +90,14 @@ func infect():
 	cured()
 	pass
 
+func dead()-> void:
+	status.isAlive = false
+	emit_signal("on_died")
+	#queue_free()
+
 func deathWith(killer):
 	if currentCollider.name == killer:
-		queue_free()
-
-func on_attack_finish():
-	print(1)
+		dead()
 
 func load_texture():
 	_animation = animation.instance()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://stages/resources/ship/ship.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/resources/ship/ship-bg.tres" type="TileSet" id=2]
 [ext_resource path="res://stages/resources/ship/decoration-bg.tres" type="TileSet" id=3]
+[ext_resource path="res://stages/resources/Spike.tscn" type="PackedScene" id=4]
 
 [node name="Ship" type="Node2D"]
 
@@ -23,3 +24,7 @@ position = Vector2( 0, 21 )
 tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 262146, 6, 0, 262152, 6, 0, 262158, 6, 0, 327684, 0, 0 )
+
+[node name="Spike" parent="." instance=ExtResource( 4 )]
+position = Vector2( 546.574, 694.388 )
+scale = Vector2( 22, 1 )

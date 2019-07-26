@@ -4,16 +4,27 @@ var Player = load("res://src/player/player.gd")
 var Stage = preload("res://stages/Ship.tscn")
 var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
 var Playlist = load("res://src/playlist/playlist.gd")
-var MusicPlayer = load("res://src/musicPlayer.gd")
+
+var stage
+var playlist
+
+var players:Array
+var numberOfPlayers:int
 
 var timer:Timer
 
+var gameOver:bool = false
+
 func _ready():
+	init()
+
+func init()-> void:
 	add_stage()
 	add_music()
 	add_players()
 	add_disease()
 	set_random_disease()
+	config_signals()
 
 func set_random_disease()-> void:
 	timer.start()
@@ -22,13 +33,13 @@ func add_disease()-> void:
 	config_timer()
 
 func add_music()-> void:
-	var playlist = Playlist.new()
+	playlist = Playlist.new()
 	playlist.play()
 	
 	add_child(playlist)
 
 func add_stage()-> void:
-	var stage = Stage.instance()
+	stage = Stage.instance()
 	
 	add_child(stage)
 
@@ -48,6 +59,9 @@ func add_players()-> void:
 	
 	add_child(player1)
 	add_child(player2)
+	
+	players = get_tree().get_nodes_in_group("players")
+	numberOfPlayers = players.size()
 
 func config_timer()-> void:
 	timer = Timer.new()
@@ -61,10 +75,24 @@ func config_timer()-> void:
 
 func set_disease()-> void:
 	var disease = DiseaseRandomizer.get_disease()
-	var players = get_tree().get_nodes_in_group("players")
 	
 	disease.position.x = -20
 	disease.position.y = -150
 	
 	players[randi() % players.size()].set_disease(disease)
 
+func config_signals()-> void:
+	for player in players:
+		player.connect("on_died", self, "on_player_died")
+
+func on_player_died()-> void:
+	for player in players:
+		if !player.status.isAlive:
+			numberOfPlayers -= 1
+			
+			if numberOfPlayers == 1 && !gameOver:
+				game_over()
+				break
+
+func game_over()-> void:
+	get_tree().reload_current_scene()

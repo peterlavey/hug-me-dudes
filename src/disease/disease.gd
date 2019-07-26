@@ -34,7 +34,7 @@ func config_input() -> void:
 func config_timer() -> void:
 	timer = Timer.new()
 	timer.set_one_shot(true)
-	timer.connect("timeout", self, "death")
+	timer.connect("timeout", self, "dead")
 	
 	pass
 
