@@ -1,5 +1,6 @@
 class_name SpontaneousCombustion extends "res://src/disease/disease.gd"
 
+const _name = "SpontaneousCombustion"
 var Fire = preload("res://particles/Fire.tscn")
 var fire
 const LIFE_EXPECTANCY:int = 6

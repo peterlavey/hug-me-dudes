@@ -2,7 +2,7 @@ class_name Game extends Node
 
 var Player = load("res://src/player/player.gd")
 var Stage = preload("res://stages/Ship.tscn")
-var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
+var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 var Playlist = load("res://src/playlist/playlist.gd")
 
 var stage
@@ -84,7 +84,7 @@ func config_timer()-> void:
 	pass
 
 func set_disease()-> void:
-	var disease = DiseaseRandomizer.get_disease()
+	var disease = DiseaseFactory.get_random_disease()
 	
 	disease.position.x = -20
 	disease.position.y = -150

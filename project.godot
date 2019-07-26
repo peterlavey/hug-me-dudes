@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://src/disease/disease.gd"
 }, {
 "base": "GDScript",
-"class": "DiseaseRandomizer",
+"class": "DiseaseFactory",
 "language": "GDScript",
-"path": "res://src/disease/diseaseRandomizer.gd"
+"path": "res://src/disease/diseaseFactory.gd"
 }, {
 "base": "GDScript",
 "class": "FolderManager",
@@ -66,7 +66,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Disease": "",
-"DiseaseRandomizer": "",
+"DiseaseFactory": "",
 "FolderManager": "",
 "FulminatingDiarrhea": "",
 "Game": "",

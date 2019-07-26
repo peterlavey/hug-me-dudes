@@ -17,7 +17,7 @@ export var _id:int = 1
 export var id = "1"
 export var status:GDScript = Status.new()
 var disease:Node2D
-var DiseaseRandomizer = load("res://src/disease/diseaseRandomizer.gd").new()
+var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 
 signal on_died
 
@@ -81,7 +81,7 @@ func cured():
 	pass
 
 func infect():
-	var _disease = DiseaseRandomizer.get_disease()
+	var _disease = DiseaseFactory.get_disease(disease._name)
 	
 	_disease.position.x = -20
 	_disease.position.y = -150
