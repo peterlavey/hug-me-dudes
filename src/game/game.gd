@@ -2,18 +2,13 @@ class_name Game extends Node
 
 var Player = load("res://src/player/player.gd")
 var Stage = preload("res://stages/Ship.tscn")
-var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
-var Playlist = load("res://src/playlist/playlist.gd")
-var TextWin = load("res://src/game/textWin.gd")
-var CustomCamera = load("res://src/game/camera.gd")
 
-var stage
-var playlist
-var textWin
-var camera
+var diseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
+var playlist = load("res://src/playlist/playlist.gd").new()
+var camera = load("res://src/game/camera.gd").new()
+var hud = load("res://src/game/hud.gd").new()
 
 var players:Array
-
 var timerDisease:Timer
 var timerWinner:Timer
 
@@ -30,24 +25,10 @@ func init()-> void:
 
 func configurations()-> void:
 	config_signals()
-	config_ui()
-	config_camera()
+	config_hud()
 
-func config_camera()-> void:
-	camera = CustomCamera.new()
-	
-	#camera.make_current()
-	#camera.set_anchor_mode(Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT)
-	#camera.align()
-	
-	#add_child(camera)
-
-func config_ui()-> void:
-	textWin = TextWin.new()
-	textWin.position.x = 500
-	textWin.position.y = 200
-	
-	add_child(textWin)
+func config_hud()-> void:
+	add_child(hud)
 
 func set_random_disease()-> void:
 	timerDisease.start()
@@ -56,15 +37,12 @@ func add_disease()-> void:
 	config_timer()
 
 func add_music()-> void:
-	playlist = Playlist.new()
-	playlist.play()
-	
 	add_child(playlist)
+	
+	playlist.play()
 
 func add_stage()-> void:
-	stage = Stage.instance()
-	
-	add_child(stage)
+	add_child(Stage.instance())
 
 func add_players()-> void:
 	var player1 = Player.new()
@@ -113,7 +91,7 @@ func config_timer()-> void:
 	
 	timerWinner = Timer.new()
 	timerWinner.set_one_shot(true)
-	timerWinner.set_wait_time(2)
+	timerWinner.set_wait_time(5)
 	timerWinner.connect("timeout", self, "reload")
 	
 	add_child(timerWinner)
@@ -121,7 +99,7 @@ func config_timer()-> void:
 	pass
 
 func set_disease()-> void:
-	var disease = DiseaseFactory.get_random_disease()
+	var disease = diseaseFactory.get_random_disease()
 	
 	disease.position.x = -20
 	disease.position.y = -150
@@ -150,7 +128,7 @@ func game_over(winner)-> void:
 	show_winner(winner)
 
 func show_winner(winner)-> void:
-	textWin.show_winner(winner.nickname)
+	hud.textWin.show_winner(winner.nickname)
 	
 	camera.set_zoom(Vector2(0.5, 0.5))
 	winner.add_child(camera)
@@ -159,5 +137,4 @@ func show_winner(winner)-> void:
 	timerWinner.start()
 
 func reload()-> void:
-	print("reload")
 	get_tree().reload_current_scene()

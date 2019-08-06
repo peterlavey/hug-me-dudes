@@ -2,7 +2,6 @@ class_name TextWin extends Node2D
 
 var input:TextEdit
 
-
 func _ready():
 	config_input()
 
@@ -16,8 +15,8 @@ func config_input() -> void:
 	pass
 
 func show_winner(winner:String) -> void:
-	input.rect_size.x = 150
-	input.rect_size.y = 40
+	input.rect_size.x = 120
+	input.rect_size.y = 20
 	input.set_text(winner + " wins!!")
 
 func remove_winner() -> void:

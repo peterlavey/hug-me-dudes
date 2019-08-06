@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/game/game.gd"
 }, {
+"base": "CanvasLayer",
+"class": "Hud",
+"language": "GDScript",
+"path": "res://src/game/hud.gd"
+}, {
 "base": "AudioStreamPlayer2D",
 "class": "MusicPlayer",
 "language": "GDScript",
@@ -81,6 +86,7 @@ _global_script_class_icons={
 "FolderManager": "",
 "FulminatingDiarrhea": "",
 "Game": "",
+"Hud": "",
 "MusicPlayer": "",
 "Player": "",
 "Playlist": "",
