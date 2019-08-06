@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Camera2D",
+"class": "CustomCamera",
+"language": "GDScript",
+"path": "res://src/game/camera.gd"
+}, {
 "base": "Node2D",
 "class": "Disease",
 "language": "GDScript",
@@ -63,8 +68,14 @@ _global_script_classes=[ {
 "class": "Status",
 "language": "GDScript",
 "path": "res://src/player/status.gd"
+}, {
+"base": "Node2D",
+"class": "TextWin",
+"language": "GDScript",
+"path": "res://src/game/textWin.gd"
 } ]
 _global_script_class_icons={
+"CustomCamera": "",
 "Disease": "",
 "DiseaseFactory": "",
 "FolderManager": "",
@@ -75,7 +86,8 @@ _global_script_class_icons={
 "Playlist": "",
 "SpontaneousCombustion": "",
 "SpotifyAPI": "",
-"Status": ""
+"Status": "",
+"TextWin": ""
 }
 
 [application]

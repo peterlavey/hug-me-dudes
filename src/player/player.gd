@@ -12,6 +12,7 @@ func _ready():
 func create_player():
 	body = body.instance()
 	body._id = _id
+	body.nickname = nickname
 	body.animation = animation
 
 	add_child(body)

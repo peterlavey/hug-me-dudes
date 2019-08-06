@@ -16,6 +16,7 @@ var Status = load("res://src/status.gd")
 export var _id:int = 1
 export var id = "1"
 export var status:GDScript = Status.new()
+export var nickname:String = 'Default'
 var disease:Node2D
 var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 
@@ -92,7 +93,7 @@ func infect():
 
 func dead()-> void:
 	status.isAlive = false
-	emit_signal("on_died", self, status.isAfflicted)
+	emit_signal("on_died", self)
 	queue_free()
 
 func deathWith(killer):
