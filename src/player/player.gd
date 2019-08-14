@@ -1,6 +1,6 @@
 class_name Player extends Node2D
 
-var body = preload("res://characters/Player.tscn")
+var body = preload("res://src/player/Player.tscn")
 
 export onready var _id:int
 export var nickname:String = 'Default'

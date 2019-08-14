@@ -1,4 +1,4 @@
-class_name Game extends Node
+class_name Game extends Node2D
 
 var Player = load("res://src/player/player.gd")
 var Stage = preload("res://stages/Ship.tscn")
@@ -52,25 +52,25 @@ func add_players()-> void:
 	
 	player1._id = 1
 	player1.nickname = "Peter"
-	player1.animation = load("res://characters/Peter.tscn")
+	player1.animation = load("res://src/characters/Peter.tscn")
 	player1.position.x = 300
 	player1.position.y = 200
 	
 	player2._id = 2
 	player2.nickname = "Kenny"
-	player2.animation = load("res://characters/Peter.tscn")
+	player2.animation = load("res://src/characters/Peter.tscn")
 	player2.position.x = 500
 	player2.position.y = 200
 	
 	player3._id = 3
 	player3.nickname = "Bestian"
-	player3.animation = load("res://characters/Peter.tscn")
+	player3.animation = load("res://src/characters/Peter.tscn")
 	player3.position.x = 700
 	player3.position.y = 200
 	
 	player4._id = 4
 	player4.nickname = "Wyrm"
-	player4.animation = load("res://characters/Peter.tscn")
+	player4.animation = load("res://src/characters/Peter.tscn")
 	player4.position.x = 900
 	player4.position.y = 200
 	
