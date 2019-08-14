@@ -1,6 +1,6 @@
 class_name Game extends Node2D
 
-var Player = load("res://src/player/player.gd")
+var Player = load("res://src/player/player.tscn")
 var Stage = preload("res://stages/Ship.tscn")
 
 var diseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
@@ -45,32 +45,32 @@ func add_stage()-> void:
 	add_child(Stage.instance())
 
 func add_players()-> void:
-	var player1 = Player.new()
-	var player2 = Player.new()
-	var player3 = Player.new()
-	var player4 = Player.new()
+	var player1 = Player.instance()
+	var player2 = Player.instance()
+	var player3 = Player.instance()
+	var player4 = Player.instance()
 	
 	player1._id = 1
 	player1.nickname = "Peter"
-	player1.animation = load("res://src/characters/Peter.tscn")
+	player1.character = load("res://src/characters/Peter.tscn")
 	player1.position.x = 300
 	player1.position.y = 200
 	
 	player2._id = 2
 	player2.nickname = "Kenny"
-	player2.animation = load("res://src/characters/Peter.tscn")
+	player2.character = load("res://src/characters/Peter.tscn")
 	player2.position.x = 500
 	player2.position.y = 200
 	
 	player3._id = 3
 	player3.nickname = "Bestian"
-	player3.animation = load("res://src/characters/Peter.tscn")
+	player3.character = load("res://src/characters/Peter.tscn")
 	player3.position.x = 700
 	player3.position.y = 200
 	
 	player4._id = 4
 	player4.nickname = "Wyrm"
-	player4.animation = load("res://src/characters/Peter.tscn")
+	player4.character = load("res://src/characters/Peter.tscn")
 	player4.position.x = 900
 	player4.position.y = 200
 	
