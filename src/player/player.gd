@@ -17,6 +17,8 @@ export var status:GDScript = load("res://src/player/status.gd").new()
 export var nickname:String = 'Default'
 export var character:PackedScene
 
+var isKicking = false
+
 signal on_died
 
 func set_disease(_disease):
@@ -33,8 +35,9 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	movements()
-	on_player_collides()
+	if(status.isAlive):
+		movements()
+		on_player_collides()
 	
 	pass
 
@@ -44,14 +47,16 @@ func movements():
 	
 	if Input.is_action_pressed("ui_right_" + str(_id)):
 		motion.x = min(motion.x + ACCELERARION, MAX_SPEED)
-
 		_animation.play("Run")
 		_animation.flip_h = false
 	elif Input.is_action_pressed("ui_left_" + str(_id)):
 		motion.x = max(motion.x - ACCELERARION, -MAX_SPEED)
 		_animation.play("Run")
 		_animation.flip_h = true
-	else:
+	#elif Input.is_action_pressed("ui_kick_" + str(_id)) && !isKicking:
+	#	isKicking = true
+	#	_animation.play("Kick")	
+	elif !isKicking:
 		friction = true
 		_animation.play("Idle")
 	
@@ -69,10 +74,16 @@ func movements():
 func on_player_collides():
 	for i in get_slide_count():
 		currentCollider = get_slide_collision(i).collider
-		if currentCollider.name == "Player" && status.isAfflicted:
-			infect()
+		if currentCollider.name == "Player":
+			if status.isAfflicted:
+				infect()
+			#elif isKicking:
+			#	hurts()
 		elif currentCollider.name == "Spike" && status.isAlive:
 			dead()
+func hurts():
+	print("hurts")
+	currentCollider.dead()
 
 func cured():
 	disease.remove_effects()
@@ -93,7 +104,9 @@ func infect():
 func dead()-> void:
 	status.isAlive = false
 	emit_signal("on_died", self)
-	queue_free()
+	_animation.play("Dead")
+
+	#queue_free()
 
 func deathWith(killer):
 	if currentCollider.name == killer:
@@ -101,8 +114,15 @@ func deathWith(killer):
 
 func load_texture():
 	_animation = character.instance()
+	_animation.connect("animation_finished", self, "animation_finished")
 	add_child(_animation)
 
 func set_texture(newTexture):
 	_animation = character.instance()
 	add_child(_animation)
+
+func animation_finished():
+	if _animation.animation == 'Kick':
+		isKicking = false
+	elif _animation.animation == 'Dead':
+		_animation.speed_scale *= 0.9

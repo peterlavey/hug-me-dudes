@@ -91,7 +91,7 @@ func config_timer()-> void:
 	
 	timerWinner = Timer.new()
 	timerWinner.set_one_shot(true)
-	timerWinner.set_wait_time(5)
+	timerWinner.set_wait_time(8)
 	timerWinner.connect("timeout", self, "reload")
 	
 	add_child(timerWinner)

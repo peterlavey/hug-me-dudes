@@ -3,7 +3,7 @@ class_name FulminatingDiarrhea extends "res://src/disease/disease.gd"
 const _name = "FulminatingDiarrhea"
 var Diarrhea = preload("res://particles/Diarrhea.tscn")
 var diarrhea
-const LIFE_EXPECTANCY:int = 8
+const LIFE_EXPECTANCY:int = 5
 
 func _ready():
 	diarrhea = Diarrhea.instance()
