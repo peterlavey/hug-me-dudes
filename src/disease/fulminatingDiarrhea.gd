@@ -13,14 +13,15 @@ func _ready():
 
 func dead() -> void:
 	afflicted.dead()
+	afflicted._animation.modulate = "2d7550"
 	pass
 
 func remove_effects() -> void:
-	afflicted.modulate = "ffffff"
+	afflicted._animation.modulate = "ffffff"
 	diarrhea.queue_free()
 	pass
 
 func start_effects() -> void:
-	afflicted.modulate = "4d732a"
+	afflicted._animation.modulate = "4d732a"
 	afflicted.add_child(diarrhea)
 	pass

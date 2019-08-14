@@ -13,6 +13,7 @@ func _ready():
 
 func dead() -> void:
 	afflicted.dead()
+	afflicted._animation.modulate = '#333333'
 	pass
 
 func remove_effects() -> void:
