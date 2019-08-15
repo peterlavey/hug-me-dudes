@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GDScript",
+"class": "Constants",
+"language": "GDScript",
+"path": "res://src/player/constants.gd"
+}, {
 "base": "Camera2D",
 "class": "CustomCamera",
 "language": "GDScript",
@@ -90,6 +95,7 @@ _global_script_classes=[ {
 "path": "res://src/game/textWin.gd"
 } ]
 _global_script_class_icons={
+"Constants": "",
 "CustomCamera": "",
 "Disease": "",
 "DiseaseFactory": "",

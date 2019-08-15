@@ -7,10 +7,12 @@ var MAX_SPEED = 200
 var JUMP_WEIGHT = -550
 
 var motion = Vector2()
+var collision:CollisionShape2D
 var currentCollider
 var _animation:AnimatedSprite = AnimatedSprite.new()
 var disease:Node2D
 var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
+var CONSTANTS = load("res://src/player/constants.gd").new()
 
 export var _id:int = 1
 export var status:GDScript = load("res://src/player/status.gd").new()
@@ -30,10 +32,24 @@ func set_disease(_disease):
 
 func _ready():
 	load_texture()
+	config_collision()
 	add_to_group("players")
 	
 	pass
+
+func config_collision():
+	collision = CollisionShape2D.new()
+	collision.shape = RectangleShape2D.new()
+
+	set_collision(CONSTANTS.COLLISION_STATES.INITIAL)
 	
+	add_child(collision)
+
+func set_collision(collisionState):
+	collision.shape.extents = collisionState.SIZE
+	collision.position.x = collisionState.POSITION.X
+	collision.position.y = collisionState.POSITION.Y
+
 func _physics_process(delta):
 	if(status.isAlive):
 		movements()
@@ -74,7 +90,8 @@ func movements():
 func on_player_collides():
 	for i in get_slide_count():
 		currentCollider = get_slide_collision(i).collider
-		if currentCollider.name == "Player":
+
+		if currentCollider.is_in_group("players"):
 			if status.isAfflicted:
 				infect()
 			#elif isKicking:
@@ -105,8 +122,7 @@ func dead()-> void:
 	status.isAlive = false
 	emit_signal("on_died", self)
 	_animation.play("Dead")
-
-	#queue_free()
+	set_collision(CONSTANTS.COLLISION_STATES.DEAD)
 
 func deathWith(killer):
 	if currentCollider.name == killer:
