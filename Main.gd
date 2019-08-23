@@ -1,8 +1,7 @@
 extends Node
 
-var Game = load("res://src/game/game.gd")
-var game
+var game = load("res://src/game/game.gd").new()
+var menu = load("res://src/game/menu.gd").new()
 
 func _ready():
-	game = Game.new()
-	add_child(game)
+	add_child(menu)

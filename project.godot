@@ -117,7 +117,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Hug me dudes"
-run/main_scene="res://stages/Stage.tscn"
+run/main_scene="res://Main.tscn"
+boot_splash/image="res://sprites/icon.png"
 config/icon="res://sprites/icon.png"
 
 [display]

@@ -22,6 +22,9 @@ func show_time_left() -> void:
 	
 	pass
 
+func remove_time_left() -> void:
+	remove_child(input)
+
 func config_input() -> void:
 	input = TextEdit.new()
 	input.rect_size.x = 50
