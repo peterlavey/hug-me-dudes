@@ -4,6 +4,7 @@ var background:Sprite = Sprite.new()
 var startButton:LinkButton = LinkButton.new()
 var buttonTimer:Timer = Timer.new()
 var isInitiated:bool = false
+signal on_menu_start
 
 func _init():
 	config_background()
@@ -11,14 +12,17 @@ func _init():
 	config_animation()
 	pass
 
+func menu_start()-> void:
+	isInitiated = true
+	emit_signal("on_menu_start")
+
 func _process(delta):
 	if !isInitiated:
 		listen_start_button()
 
 func listen_start_button()-> void:
 	if Input.is_action_pressed("ui_accept"):
-		isInitiated = true
-		print("OK")
+		menu_start()
 
 func config_background()-> void:
 	background.texture = load("res://sprites/menu/start.jpg")

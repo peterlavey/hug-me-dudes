@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "TextWin",
 "language": "GDScript",
 "path": "res://src/game/textWin.gd"
+}, {
+"base": "Node",
+"class": "Transition",
+"language": "GDScript",
+"path": "res://src/game/transition.gd"
 } ]
 _global_script_class_icons={
 "Constants": "",
@@ -111,7 +116,8 @@ _global_script_class_icons={
 "SpontaneousCombustion": "",
 "SpotifyAPI": "",
 "Status": "",
-"TextWin": ""
+"TextWin": "",
+"Transition": ""
 }
 
 [application]
