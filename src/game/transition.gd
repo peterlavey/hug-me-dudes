@@ -5,6 +5,8 @@ var alpha = 0
 var isComplete = true
 var processSelected = 0
 var callback = 0
+export var speed = 1
+signal on_blackout
 
 const PROCESS = {
 	"LIGHT_TO_DARK_TO_LIGHT": 0,
@@ -43,15 +45,16 @@ func _process(delta):
 func dark_to_light_process():
 	if alpha > 0:
 		screen.modulate = Color8(0, 0, 0, alpha)
-		alpha -= 1
+		alpha -= speed
 	else:
 		isComplete = true
 
 func light_to_dark_to_light_process():
 	if callback == 0 && alpha < 255:
 		screen.modulate = Color8(0, 0, 0, alpha)
-		alpha += 1
+		alpha += speed
 	elif alpha > 253 && callback == 0:
+		emit_signal("on_blackout")
 		callback += 1
 	elif callback == 1:
 		dark_to_light_process()
