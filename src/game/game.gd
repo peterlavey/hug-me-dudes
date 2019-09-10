@@ -58,26 +58,26 @@ func add_players()-> void:
 	
 	player2._id = 2
 	player2.nickname = "Kenny"
-	player2.character = load("res://src/characters/Peter.tscn")
+	player2.character = load("res://src/characters/Kenny.tscn")
 	player2.position.x = 500
 	player2.position.y = 200
 	
 	player3._id = 3
 	player3.nickname = "Bestian"
-	player3.character = load("res://src/characters/Peter.tscn")
+	player3.character = load("res://src/characters/Bestian.tscn")
 	player3.position.x = 700
 	player3.position.y = 200
 	
 	player4._id = 4
 	player4.nickname = "Wyrm"
-	player4.character = load("res://src/characters/Peter.tscn")
+	player4.character = load("res://src/characters/Wyrm.tscn")
 	player4.position.x = 900
 	player4.position.y = 200
 	
 	add_child(player1)
 	add_child(player2)
-	#add_child(player3)
-	#add_child(player4)
+	add_child(player3)
+	add_child(player4)
 	
 	players = get_tree().get_nodes_in_group("players")
 

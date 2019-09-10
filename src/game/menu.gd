@@ -4,13 +4,21 @@ var background:Sprite = Sprite.new()
 var startButton:LinkButton = LinkButton.new()
 var buttonTimer:Timer = Timer.new()
 var isInitiated:bool = false
+var musicPlayer = AudioStreamPlayer2D.new()
 signal on_menu_start
 
 func _init():
 	config_background()
 	config_button()
 	config_animation()
+	config_music()
 	pass
+
+func config_music()-> void:
+	var song = load("res://sounds/menu/sea.ogg")
+	musicPlayer.stream = song
+	add_child(musicPlayer)
+	musicPlayer.play()
 
 func menu_start()-> void:
 	isInitiated = true

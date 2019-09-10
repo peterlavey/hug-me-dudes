@@ -2,12 +2,14 @@ extends Node
 
 var game = load("res://src/game/game.gd").new()
 var menu = load("res://src/game/menu.gd").new()
+var stageSelect = load("res://src/game/stageSelect.gd").new()
 var transition = load("res://src/game/transition.gd").new()
 var world:Node
 
 func _ready():
 	config_world()
-	config_menu()
+	#config_menu()
+	config_stage_select()
 	config_transition()
 
 func config_world()-> void:
@@ -24,6 +26,9 @@ func config_menu():
 	
 	transition.speed = 3
 	transition.dark_to_light()
+
+func config_stage_select()-> void:
+	world.add_child(stageSelect)
 
 func start_game():
 	transition()
