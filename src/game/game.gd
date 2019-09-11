@@ -1,8 +1,7 @@
 class_name Game extends Node2D
 
 var Player = load("res://src/player/player.gd")
-var Stage = preload("res://stages/Ship.tscn")
-
+var stage
 var diseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 var playlist = load("res://src/playlist/playlist.gd").new()
 var camera = load("res://src/game/camera.gd").new()
@@ -42,7 +41,8 @@ func add_music()-> void:
 	playlist.play()
 
 func add_stage()-> void:
-	add_child(Stage.instance())
+	var _stage = load("res://stages/" + stage).instance()
+	add_child(_stage)
 
 func add_players()-> void:
 	var player1 = Player.new()

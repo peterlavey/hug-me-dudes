@@ -6,6 +6,8 @@ var background:Sprite = Sprite.new()
 var musicPlayer = AudioStreamPlayer2D.new()
 var stages:Array
 var stageIndex = 0
+var currentStage
+var stageList: Array
 var folderManager = load("res://src/utils/folderManager.gd").new()
 signal on_selected_stage
 
@@ -29,18 +31,19 @@ func config_menu()-> void:
 	add_child(menu)
 
 func config_stages()-> void:
-	var stageList = folderManager.get_directory_list("res://stages", "tscn")
+	stageList = folderManager.get_directory_list("res://stages", "tscn")
 	
 	for stage in stageList:
 		stages.append(load("res://stages/" + stage))
-	
-	menu.add_child(stages[stageIndex].instance())
+		
+	currentStage = stages[stageIndex].instance()
+	menu.add_child(currentStage)
 
 func config_music()-> void:
-	var song = load("res://sounds/menu/sea.ogg")
+	var song = load("res://sounds/menu/song.ogg")
 	musicPlayer.stream = song
 	add_child(musicPlayer)
-	#musicPlayer.play()
+	musicPlayer.play()
 
 func listen_start_button()-> void:
 	if Input.is_action_just_released("ui_left_1") && stageIndex > 0:
@@ -51,20 +54,22 @@ func listen_start_button()-> void:
 		select()
 
 func left()-> void:
-	menu.remove_child(stages[stageIndex].instance())
+	menu.remove_child(currentStage)
 	stageIndex -= 1
-	menu.add_child(stages[stageIndex].instance())
-	pass
+	currentStage = stages[stageIndex].instance()
+	menu.add_child(currentStage)
 
 func right()-> void:
-	menu.remove_child(stages[stageIndex].instance())
+	menu.remove_child(currentStage)
 	stageIndex += 1
-	menu.add_child(stages[stageIndex].instance())
-	pass
+	currentStage = stages[stageIndex].instance()
+	menu.add_child(currentStage)
 
 func select()-> void:
 	isInitiated = true
-	emit_signal("on_selected_stage")
+	menu.remove_child(currentStage)
+	remove_child(menu)
+	emit_signal("on_selected_stage", stageList[stageIndex])
 
 func config_background()-> void:
 	background.texture = load("res://sprites/menu/start.jpg")
