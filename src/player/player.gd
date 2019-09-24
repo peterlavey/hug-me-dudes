@@ -100,7 +100,6 @@ func on_player_collides():
 			dead()
 
 func hurts():
-	print("hurts")
 	currentCollider.dead()
 
 func cured():
@@ -124,7 +123,9 @@ func dead()-> void:
 	emit_signal("on_died", self)
 	_animation.play("Dead")
 	set_collision(CONSTANTS.COLLISION_STATES.DEAD)
-	disease.remove_time_left()
+	
+	if status.isAfflicted:
+		disease.remove_time_left()
 
 func deathWith(killer):
 	if currentCollider.name == killer:

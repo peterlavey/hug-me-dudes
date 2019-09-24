@@ -4,6 +4,7 @@ var input:TextEdit
 var timer:Timer
 var timeLeft:float
 var afflicted:KinematicBody2D
+signal dead 
 
 func _init():
 	config_timer()
@@ -24,6 +25,7 @@ func show_time_left() -> void:
 
 func remove_time_left() -> void:
 	remove_child(input)
+	timer.stop()
 
 func config_input() -> void:
 	input = TextEdit.new()
@@ -38,8 +40,6 @@ func config_timer() -> void:
 	timer = Timer.new()
 	timer.set_one_shot(true)
 	timer.connect("timeout", self, "dead")
-	
-	pass
 
 func start(seconds:int) -> void:
 	timer.set_wait_time(seconds)
