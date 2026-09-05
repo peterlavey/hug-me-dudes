@@ -6,3 +6,5 @@ res://src/game/transition.gd
 res://src/player/player.gd
 res://src/game/game.gd
 res://stages/resources/TileSet.tres
+res://src/disease/disease.gd
+res://src/disease/spontaneousCombustion.gd

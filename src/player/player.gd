@@ -10,20 +10,20 @@ var motion = Vector2()
 var collision:CollisionShape2D
 var currentCollider
 var _animation:AnimatedSprite2D = AnimatedSprite2D.new()
-var disease:Node2D
+var disease: Disease
 var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 var CONSTANTS = load("res://src/player/constants.gd").new()
 
-@export var _id:int = 1
-@export var status:GDScript = load("res://src/player/status.gd").new()
-@export var nickname:String = 'Default'
-@export var character:PackedScene
+@export var _id: int = 1
+@export var status: GDScript = load("res://src/player/status.gd").new()
+@export var nickname: String = 'Default'
+@export var character: PackedScene
 
-var isKicking = false
+var isKicking: bool = false
 
 signal on_died
 
-func set_disease(_disease):
+func set_disease(_disease: Disease) -> void:
 	disease = _disease
 	status.isAfflicted = true
 	disease.afflicted = self

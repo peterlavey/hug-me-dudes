@@ -1,19 +1,18 @@
-class_name DiseaseFactory extends GDScript
+class_name DiseaseFactory extends RefCounted
 
 var SpontaneousCombustion = load("res://src/disease/spontaneousCombustion.gd")
 var FulminatingDiarrhea = load("res://src/disease/fulminatingDiarrhea.gd")
 
-var DISEASES:Array = [
+var DISEASES: Array = [
 	SpontaneousCombustion,
 	FulminatingDiarrhea
 ]
 
-func get_random_disease()-> Disease:
+func get_random_disease() -> Disease:
 	return DISEASES[random()].new()
-	pass
 
-func get_disease(name:String)-> Disease:
-	var _disease:Disease
+func get_disease(name: String) -> Disease:
+	var _disease: Disease
 	
 	for disease in DISEASES:
 		if disease._name == name:
@@ -21,8 +20,6 @@ func get_disease(name:String)-> Disease:
 			break
 	
 	return _disease
-	pass
 
-func random()-> int:
+func random() -> int:
 	return randi() % DISEASES.size()
-	pass

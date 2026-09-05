@@ -1,27 +1,24 @@
-class_name FulminatingDiarrhea extends "res://src/disease/disease.gd"
+class_name FulminatingDiarrhea extends Disease
 
-const _name = "FulminatingDiarrhea"
+const _name: String = "FulminatingDiarrhea"
 var Diarrhea = preload("res://particles/Diarrhea.tscn")
-var diarrhea
-const LIFE_EXPECTANCY:int = 5
+var diarrhea: GPUParticles2D
+const LIFE_EXPECTANCY: float = 5.0
 
-func _ready():
+func _ready() -> void:
 	diarrhea = Diarrhea.instantiate()
 	start_effects()
 	start(LIFE_EXPECTANCY)
-	pass
 
 func dead() -> void:
 	afflicted.dead()
-	afflicted._animation.modulate = "2d7550"
-	pass
+	afflicted._animation.modulate = Color("2d7550")
 
 func remove_effects() -> void:
-	afflicted._animation.modulate = "ffffff"
-	diarrhea.queue_free()
-	pass
+	afflicted._animation.modulate = Color("ffffff")
+	if diarrhea and is_instance_valid(diarrhea):
+		diarrhea.queue_free()
 
 func start_effects() -> void:
-	afflicted._animation.modulate = "4d732a"
+	afflicted._animation.modulate = Color("4d732a")
 	afflicted.add_child(diarrhea)
-	pass

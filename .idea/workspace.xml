@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added development guidelines, context summary, and software design document for project standardization and future reference.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Migrated `wood.tres` TileSet to `format=3` for Godot 4 compatibility and restructured resources with atlas sources.">
+      <change beforePath="$PROJECT_DIR$/src/disease/disease.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/disease.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disease/diseaseFactory.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/diseaseFactory.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disease/fulminatingDiarrhea.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/fulminatingDiarrhea.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disease/spontaneousCombustion.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/spontaneousCombustion.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stages/resources/AutoTile.tres" beforeDir="false" afterPath="$PROJECT_DIR$/stages/resources/AutoTile.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stages/resources/TileSet.tres" beforeDir="false" afterPath="$PROJECT_DIR$/stages/resources/TileSet.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stages/resources/ship/ship.tres" beforeDir="false" afterPath="$PROJECT_DIR$/stages/resources/ship/ship.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stages/resources/wood.tres" beforeDir="false" afterPath="$PROJECT_DIR$/stages/resources/wood.tres" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="3387" />
+    <option name="cachedIndexableFilesCount" value="3395" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -54,33 +53,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "develop",
-    "junie.onboarding.icon.badge.shown": "true",
-    "junie.plugin.stays.banner.dismissed": "true",
-    "last_opened_file_path": "/Users/peter/Workspace/hug-me-dudes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;junie.plugin.stays.banner.dismissed&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/peter/Workspace/hug-me-dudes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.27258.45" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10315.144" />
       </set>
     </attachedChunks>
   </component>
@@ -93,6 +92,7 @@
       <updated>1788634524407</updated>
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
+      <workItem from="1788638312681" duration="1075000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -126,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788637845458</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Migrated `wood.tres` TileSet to `format=3` for Godot 4 compatibility and restructured resources with atlas sources.">
+      <option name="closed" value="true" />
+      <created>1788638395014</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1788638395014</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +145,7 @@
     <MESSAGE value="Added `.gdignore` file and generated imported texture metadata files." />
     <MESSAGE value="Migrated stage files to `format=3` for compatibility with Godot 4. Updated resource paths and added unique IDs." />
     <MESSAGE value="Added development guidelines, context summary, and software design document for project standardization and future reference." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added development guidelines, context summary, and software design document for project standardization and future reference." />
+    <MESSAGE value="Migrated `wood.tres` TileSet to `format=3` for Godot 4 compatibility and restructured resources with atlas sources." />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrated `wood.tres` TileSet to `format=3` for Godot 4 compatibility and restructured resources with atlas sources." />
   </component>
 </project>
