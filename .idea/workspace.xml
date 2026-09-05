@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Converted texture imports to `CompressedTexture2D` format for optimization.">
-      <change beforePath="$PROJECT_DIR$/Main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/disease/disease.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/disease.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/menu.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stageSelect.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stageSelect.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/textWin.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/textWin.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/transition.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/transition.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/folderManager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/folderManager.gd" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `.gdignore` file and generated imported texture metadata files.">
+      <change beforePath="$PROJECT_DIR$/stages/Ship.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/stages/Ship.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stages/Stage.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/stages/Stage.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stages/Towers.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/stages/Towers.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stages/resources/Spike.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/stages/resources/Spike.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1788634524407</updated>
       <workItem from="1788634525418" duration="206000" />
-      <workItem from="1788634753682" duration="669000" />
+      <workItem from="1788634753682" duration="2477000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -104,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788634844023</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added `.gdignore` file and generated imported texture metadata files.">
+      <option name="closed" value="true" />
+      <created>1788635656482</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1788635656482</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Converted texture imports to `CompressedTexture2D` format for optimization." />
-    <option name="LAST_COMMIT_MESSAGE" value="Converted texture imports to `CompressedTexture2D` format for optimization." />
+    <MESSAGE value="Added `.gdignore` file and generated imported texture metadata files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `.gdignore` file and generated imported texture metadata files." />
   </component>
 </project>
