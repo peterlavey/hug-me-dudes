@@ -37,7 +37,7 @@ func _ready():
 	
 	pass
 
-func config_collision():
+func config_collision() -> void:
 	collision = CollisionShape2D.new()
 	collision.shape = RectangleShape2D.new()
 
@@ -45,10 +45,10 @@ func config_collision():
 	
 	add_child(collision)
 
-func set_collision(collisionState):
-	collision.shape.extents = collisionState.SIZE
-	collision.position.x = collisionState.POSITION.X
-	collision.position.y = collisionState.POSITION.Y
+func set_collision(collisionState) -> void:
+	if collision and collision.shape is RectangleShape2D:
+		collision.shape.size = collisionState.SIZE * 2.0
+		collision.position = Vector2(collisionState.POSITION.X, collisionState.POSITION.Y)
 
 func _physics_process(delta):
 	if(status.isAlive):
