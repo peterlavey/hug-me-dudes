@@ -41,7 +41,7 @@ func add_music()-> void:
 	playlist.play()
 
 func add_stage()-> void:
-	var _stage = load("res://stages/" + stage).instance()
+	var _stage = load("res://stages/" + stage).instantiate()
 	add_child(_stage)
 
 func add_players()-> void:
@@ -85,14 +85,14 @@ func config_timer()-> void:
 	timerDisease = Timer.new()
 	timerDisease.set_one_shot(true)
 	timerDisease.set_wait_time(1)
-	timerDisease.connect("timeout", self, "set_disease")
+	timerDisease.connect("timeout", Callable(self, "set_disease"))
 	
 	add_child(timerDisease)
 	
 	timerWinner = Timer.new()
 	timerWinner.set_one_shot(true)
 	timerWinner.set_wait_time(8)
-	timerWinner.connect("timeout", self, "reload")
+	timerWinner.connect("timeout", Callable(self, "reload"))
 	
 	add_child(timerWinner)
 	
@@ -108,13 +108,13 @@ func set_disease()-> void:
 
 func config_signals()-> void:
 	for player in players:
-		player.connect("on_died", self, "on_player_died")
+		player.connect("on_died", Callable(self, "on_player_died"))
 
-func on_player_died(player:KinematicBody2D)-> void:
+func on_player_died(player:CharacterBody2D)-> void:
 	players.erase(player)
 	verify_players(player)
 
-func verify_players(player:KinematicBody2D)-> void:
+func verify_players(player:CharacterBody2D)-> void:
 	if players.size() == 1:
 		for winner in players:
 			game_over(winner)

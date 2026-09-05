@@ -1,11 +1,11 @@
 class_name Transition extends Node
 
-var screen = Sprite.new()
+var screen = Sprite2D.new()
 var alpha = 0
 var isComplete = true
 var processSelected = 0
 var callback = 0
-export var speed = 1
+@export var speed = 1
 signal on_blackout
 
 const PROCESS = {
@@ -19,8 +19,8 @@ func _ready():
 func config_screen()-> void:
 	screen.texture = load("res://sprites/black.png")
 	screen.centered = false
-	screen.scale.x = OS.get_window_size().x * 0.01
-	screen.scale.y = OS.get_window_size().y * 0.01
+	screen.scale.x = get_window().get_size().x * 0.01
+	screen.scale.y = get_window().get_size().y * 0.01
 
 func dark_to_light()-> void:
 	alpha = 255

@@ -7,7 +7,7 @@ var test = Polygon2D.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test.draw_rect(Rect2(Vector2(30, 30), Vector2(600, 600)), Color.yellow)
+	test.draw_rect(Rect2(Vector2(30, 30), Vector2(600, 600)), Color.YELLOW)
 	add_child(test)
 	pass # Replace with function body.
 

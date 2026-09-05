@@ -6,7 +6,7 @@ var fire
 const LIFE_EXPECTANCY:int = 6
 
 func _ready():
-	fire = Fire.instance()
+	fire = Fire.instantiate()
 	start_effects()
 	start(LIFE_EXPECTANCY)
 	pass

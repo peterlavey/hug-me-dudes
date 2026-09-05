@@ -1,15 +1,15 @@
 class_name MusicPlayer extends AudioStreamPlayer2D
 
-export var songs: Array
-export var shuffle: bool = true
-export var currentSong: String
+@export var songs: Array
+@export var shuffle: bool = true
+@export var currentSong: String
 var currentIndex:int = 0
 var input
 
 func _init():
 	#todo: no funciona el emit
 	config_input()
-	connect("finished", self, "next_song")
+	connect("finished", Callable(self, "next_song"))
 	pass
 
 func set_songs(_songs)-> void:
@@ -44,8 +44,8 @@ func set_next_song():
 
 func config_input() -> void:
 	input = TextEdit.new()
-	input.rect_size.x = 500
-	input.rect_size.y = 30
+	input.size.x = 500
+	input.size.y = 30
 	
 	add_child(input)
 	

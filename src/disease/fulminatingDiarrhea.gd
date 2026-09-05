@@ -6,7 +6,7 @@ var diarrhea
 const LIFE_EXPECTANCY:int = 5
 
 func _ready():
-	diarrhea = Diarrhea.instance()
+	diarrhea = Diarrhea.instantiate()
 	start_effects()
 	start(LIFE_EXPECTANCY)
 	pass

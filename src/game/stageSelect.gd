@@ -2,7 +2,7 @@ class_name StageSelect extends Node2D
 
 var menu = Node2D.new()
 var isInitiated:bool = false
-var background:Sprite = Sprite.new()
+var background:Sprite2D = Sprite2D.new()
 var musicPlayer = AudioStreamPlayer2D.new()
 var stages:Array
 var stageIndex = 0
@@ -19,8 +19,8 @@ func _init():
 	pass
 
 func config_menu()-> void:
-	var width = OS.get_window_size().x
-	var height = OS.get_window_size().y
+	var width = get_window().get_size().x
+	var height = get_window().get_size().y
 	
 	menu.scale.x = 0.4
 	menu.scale.y = 0.4
@@ -36,7 +36,7 @@ func config_stages()-> void:
 	for stage in stageList:
 		stages.append(load("res://stages/" + stage))
 		
-	currentStage = stages[stageIndex].instance()
+	currentStage = stages[stageIndex].instantiate()
 	menu.add_child(currentStage)
 
 func config_music()-> void:
@@ -56,13 +56,13 @@ func listen_start_button()-> void:
 func left()-> void:
 	menu.remove_child(currentStage)
 	stageIndex -= 1
-	currentStage = stages[stageIndex].instance()
+	currentStage = stages[stageIndex].instantiate()
 	menu.add_child(currentStage)
 
 func right()-> void:
 	menu.remove_child(currentStage)
 	stageIndex += 1
-	currentStage = stages[stageIndex].instance()
+	currentStage = stages[stageIndex].instantiate()
 	menu.add_child(currentStage)
 
 func select()-> void:

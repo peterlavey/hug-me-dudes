@@ -19,11 +19,11 @@ func config_world()-> void:
 	add_child(world)
 
 func config_transition()-> void:
-	transition.connect("on_blackout", self, "init_game")
+	transition.connect("on_blackout", Callable(self, "init_game"))
 	add_child(transition)
 
 func config_menu():
-	menu.connect("on_menu_start", self, "skip_story")
+	menu.connect("on_menu_start", Callable(self, "skip_story"))
 	world.add_child(menu)
 	
 	transition.speed = 3
@@ -31,12 +31,12 @@ func config_menu():
 
 func skip_story()-> void:
 	add_child(timer)
-	timer.connect("timeout", self, "config_stage_select")
+	timer.connect("timeout", Callable(self, "config_stage_select"))
 	timer.set_one_shot(true)
 	timer.start(0.5)
 
 func config_stage_select()-> void:
-	stageSelect.connect("on_selected_stage", self, "start_game")
+	stageSelect.connect("on_selected_stage", Callable(self, "start_game"))
 	world.remove_child(menu)
 	world.add_child(stageSelect)
 

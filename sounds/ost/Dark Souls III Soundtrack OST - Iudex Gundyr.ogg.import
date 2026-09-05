@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://duk66fyymq1tf"
+path="res://.godot/imported/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggvorbisstr"
 
 [deps]
 
 source_file="res://sounds/ost/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg"
-dest_files=[ "res://.import/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggstr" ]
+dest_files=["res://.godot/imported/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

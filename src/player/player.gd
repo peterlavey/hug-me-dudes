@@ -1,4 +1,4 @@
-class_name Player extends KinematicBody2D
+class_name Player extends CharacterBody2D
 
 const UP = Vector2(0, -1)
 var GRAVITY = 20
@@ -9,15 +9,15 @@ var JUMP_WEIGHT = -550
 var motion = Vector2()
 var collision:CollisionShape2D
 var currentCollider
-var _animation:AnimatedSprite = AnimatedSprite.new()
+var _animation:AnimatedSprite2D = AnimatedSprite2D.new()
 var disease:Node2D
 var DiseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 var CONSTANTS = load("res://src/player/constants.gd").new()
 
-export var _id:int = 1
-export var status:GDScript = load("res://src/player/status.gd").new()
-export var nickname:String = 'Default'
-export var character:PackedScene
+@export var _id:int = 1
+@export var status:GDScript = load("res://src/player/status.gd").new()
+@export var nickname:String = 'Default'
+@export var character:PackedScene
 
 var isKicking = false
 
@@ -85,10 +85,13 @@ func movements():
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 	
-	motion = move_and_slide(motion, UP)
+	set_velocity(motion)
+	set_up_direction(UP)
+	move_and_slide()
+	motion = velocity
 
 func on_player_collides():
-	for i in get_slide_count():
+	for i in get_slide_collision_count():
 		currentCollider = get_slide_collision(i).collider
 
 		if currentCollider.is_in_group("players"):
@@ -132,12 +135,12 @@ func deathWith(killer):
 		dead()
 
 func load_texture():
-	_animation = character.instance()
-	_animation.connect("animation_finished", self, "animation_finished")
+	_animation = character.instantiate()
+	_animation.connect("animation_finished", Callable(self, "animation_finished"))
 	add_child(_animation)
 
 func set_texture(newTexture):
-	_animation = character.instance()
+	_animation = character.instantiate()
 	add_child(_animation)
 
 func animation_finished():

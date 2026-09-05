@@ -1,6 +1,6 @@
 class_name Menu extends Node2D
 
-var background:Sprite = Sprite.new()
+var background:Sprite2D = Sprite2D.new()
 var startButton:LinkButton = LinkButton.new()
 var buttonTimer:Timer = Timer.new()
 var isInitiated:bool = false
@@ -43,15 +43,15 @@ func config_button()-> void:
 	
 	startButton.underline = LinkButton.UNDERLINE_MODE_NEVER
 	
-	startButton.rect_position.x = (OS.get_window_size().x / 2) - 60
-	startButton.rect_position.y = OS.get_window_size().y / 2
+	startButton.position.x = (get_window().get_size().x / 2) - 60
+	startButton.position.y = get_window().get_size().y / 2
 	
-	startButton.rect_scale = Vector2(2, 2)
+	startButton.scale = Vector2(2, 2)
 	
 	add_child(startButton)
 
 func config_animation()-> void:
-	buttonTimer.connect("timeout", self, "animate_button")
+	buttonTimer.connect("timeout", Callable(self, "animate_button"))
 	buttonTimer.set_wait_time(0.5)
 	buttonTimer.start()
 	

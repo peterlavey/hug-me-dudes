@@ -15,11 +15,11 @@ func config_input() -> void:
 	pass
 
 func show_winner(winner:String) -> void:
-	input.rect_size.x = 120
-	input.rect_size.y = 20
+	input.size.x = 120
+	input.size.y = 20
 	input.set_text(winner + " wins!!")
 
 func remove_winner() -> void:
-	input.rect_size.x = 0
-	input.rect_size.y = 0
+	input.size.x = 0
+	input.size.y = 0
 	input.set_text("")
