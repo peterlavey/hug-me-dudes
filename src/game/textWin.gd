@@ -8,7 +8,7 @@ func _ready():
 func config_input() -> void:
 	input = TextEdit.new()
 	
-	input.readonly = true
+	input.editable = false
 	
 	add_child(input)
 	

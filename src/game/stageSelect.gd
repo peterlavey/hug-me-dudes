@@ -11,7 +11,7 @@ var stageList: Array
 var folderManager = load("res://src/utils/folderManager.gd").new()
 signal on_selected_stage
 
-func _init():
+func _ready():
 	config_background()
 	config_music()
 	config_menu()

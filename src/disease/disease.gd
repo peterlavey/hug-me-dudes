@@ -4,7 +4,6 @@ var input:TextEdit
 var timer:Timer
 var timeLeft:float
 var afflicted:CharacterBody2D
-signal dead 
 
 func _init():
 	config_timer()
@@ -46,5 +45,8 @@ func start(seconds:int) -> void:
 	timer.start()
 	
 	add_child(timer)
+	pass
+
+func dead() -> void:
 	pass
 	

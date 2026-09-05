@@ -42,9 +42,9 @@ func config_stage_select()-> void:
 
 func start_game(_currentStage):
 	currentStage = _currentStage
-	transition()
+	start_transition()
 
-func transition():
+func start_transition()-> void:
 	transition.speed = 8
 	transition.light_to_dark_to_light()
 

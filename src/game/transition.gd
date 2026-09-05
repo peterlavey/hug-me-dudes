@@ -21,17 +21,22 @@ func config_screen()-> void:
 	screen.centered = false
 	screen.scale.x = get_window().get_size().x * 0.01
 	screen.scale.y = get_window().get_size().y * 0.01
+	screen.modulate = Color8(0, 0, 0, 0)
+	if screen.get_parent() == null:
+		add_child(screen)
 
 func dark_to_light()-> void:
 	alpha = 255
-	add_child(screen)
+	if screen.get_parent() == null:
+		add_child(screen)
 	processSelected = PROCESS.DARK_TO_LIGHT
 	isComplete = false
 
 func light_to_dark_to_light()-> void:
 	alpha = 0
 	callback = 0
-	add_child(screen)
+	if screen.get_parent() == null:
+		add_child(screen)
 	processSelected = PROCESS.LIGHT_TO_DARK_TO_LIGHT
 	isComplete = false
 
@@ -47,6 +52,7 @@ func dark_to_light_process():
 		screen.modulate = Color8(0, 0, 0, alpha)
 		alpha -= speed
 	else:
+		screen.modulate = Color8(0, 0, 0, 0)
 		isComplete = true
 
 func light_to_dark_to_light_process():

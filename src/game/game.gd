@@ -79,7 +79,7 @@ func add_players()-> void:
 	add_child(player3)
 	add_child(player4)
 	
-	players = get_tree().get_nodes_in_group("players")
+	players = [player1, player2, player3, player4]
 
 func config_timer()-> void:
 	timerDisease = Timer.new()
@@ -99,6 +99,8 @@ func config_timer()-> void:
 	pass
 
 func set_disease()-> void:
+	if players.is_empty():
+		return
 	var disease = diseaseFactory.get_random_disease()
 	
 	disease.position.x = -20

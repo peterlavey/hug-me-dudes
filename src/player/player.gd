@@ -80,10 +80,10 @@ func movements():
 		if Input.is_action_pressed("ui_up_" + str(_id)):
 			motion.y = JUMP_WEIGHT
 		if friction == true:
-			motion.x = lerp(motion.x, 0, 0.2)
+			motion.x = lerp(motion.x, 0.0, 0.2)
 	else:
 		if friction == true:
-			motion.x = lerp(motion.x, 0, 0.05)
+			motion.x = lerp(motion.x, 0.0, 0.05)
 	
 	set_velocity(motion)
 	set_up_direction(UP)
@@ -92,14 +92,14 @@ func movements():
 
 func on_player_collides():
 	for i in get_slide_collision_count():
-		currentCollider = get_slide_collision(i).collider
+		currentCollider = get_slide_collision(i).get_collider()
 
-		if currentCollider.is_in_group("players"):
+		if currentCollider and currentCollider.is_in_group("players"):
 			if status.isAfflicted:
 				infect()
 			#elif isKicking:
 			#	hurts()
-		elif currentCollider.name == "Spike" && status.isAlive:
+		elif currentCollider and currentCollider.name == "Spike" && status.isAlive:
 			dead()
 
 func hurts():

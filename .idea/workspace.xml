@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Converted texture imports to `CompressedTexture2D` format for optimization.">
+      <change beforePath="$PROJECT_DIR$/Main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disease/disease.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/disease.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/menu.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stageSelect.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stageSelect.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/textWin.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/textWin.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/transition.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/transition.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/folderManager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/folderManager.gd" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="3387" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;peterlavey&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/peterlavey/hug-me-dudes.git&quot;,
+    &quot;accountId&quot;: &quot;7522aa68-ca62-4927-9210-70b06f801a8e&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3IvAARKT3aJITt2nJleCrUjEz11" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "develop",
+    "junie.onboarding.icon.badge.shown": "true",
+    "junie.plugin.stays.banner.dismissed": "true",
+    "last_opened_file_path": "/Users/peter/Workspace/hug-me-dudes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.27258.45" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="" />
+      <created>1788634524407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788634524407</updated>
+      <workItem from="1788634525418" duration="206000" />
+      <workItem from="1788634753682" duration="669000" />
+    </task>
+    <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
+      <option name="closed" value="true" />
+      <created>1788634844023</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1788634844023</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Converted texture imports to `CompressedTexture2D` format for optimization." />
+    <option name="LAST_COMMIT_MESSAGE" value="Converted texture imports to `CompressedTexture2D` format for optimization." />
+  </component>
+</project>

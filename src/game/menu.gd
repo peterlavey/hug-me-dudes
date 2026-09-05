@@ -7,7 +7,7 @@ var isInitiated:bool = false
 var musicPlayer = AudioStreamPlayer2D.new()
 signal on_menu_start
 
-func _init():
+func _ready():
 	config_background()
 	config_button()
 	config_animation()
@@ -53,9 +53,8 @@ func config_button()-> void:
 func config_animation()-> void:
 	buttonTimer.connect("timeout", Callable(self, "animate_button"))
 	buttonTimer.set_wait_time(0.5)
-	buttonTimer.start()
-	
 	add_child(buttonTimer)
+	buttonTimer.start()
 
 func animate_button()-> void:
 	if startButton.is_visible_in_tree():
