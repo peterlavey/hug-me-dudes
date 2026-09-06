@@ -18,6 +18,7 @@ var CONSTANTS = load("res://src/player/constants.gd").new()
 @export var status: GDScript = load("res://src/player/status.gd").new()
 @export var nickname: String = 'Default'
 @export var character: PackedScene
+@export var can_move: bool = true
 
 var isKicking: bool = false
 
@@ -54,11 +55,24 @@ func set_collision(collisionState) -> void:
 		collision.position = Vector2(collisionState.POSITION.X, collisionState.POSITION.Y)
 
 func _physics_process(delta):
-	if(status.isAlive):
-		movements()
-		on_player_collides()
+	if status.isAlive:
+		if can_move:
+			movements()
+			on_player_collides()
+		else:
+			_idle_physics()
 	
 	pass
+
+func _idle_physics() -> void:
+	motion.y += GRAVITY
+	motion.x = lerp(motion.x, 0.0, 0.2)
+	if not isKicking:
+		_animation.play("Idle")
+	set_velocity(motion)
+	set_up_direction(UP)
+	move_and_slide()
+	motion = velocity
 
 func movements():
 	var friction = false

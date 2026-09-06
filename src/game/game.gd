@@ -19,12 +19,25 @@ func init()-> void:
 	add_music()
 	add_players()
 	add_disease()
-	set_random_disease()
 	configurations()
+	start_match_countdown()
 
 func configurations()-> void:
 	config_signals()
 	config_hud()
+
+func start_match_countdown()-> void:
+	if hud and hud.match_countdown:
+		hud.match_countdown.connect("countdown_finished", Callable(self, "_on_match_countdown_finished"), CONNECT_ONE_SHOT)
+		hud.match_countdown.start_countdown()
+	else:
+		_on_match_countdown_finished()
+
+func _on_match_countdown_finished()-> void:
+	for player in players:
+		if is_instance_valid(player):
+			player.can_move = true
+	set_random_disease()
 
 func config_hud()-> void:
 	add_child(hud)
@@ -55,24 +68,28 @@ func add_players()-> void:
 	player1.character = load("res://src/characters/Peter.tscn")
 	player1.position.x = 300
 	player1.position.y = 200
+	player1.can_move = false
 	
 	player2._id = 2
 	player2.nickname = "Kenny"
 	player2.character = load("res://src/characters/Kenny.tscn")
 	player2.position.x = 500
 	player2.position.y = 200
+	player2.can_move = false
 	
 	player3._id = 3
 	player3.nickname = "Bestian"
 	player3.character = load("res://src/characters/Bestian.tscn")
 	player3.position.x = 700
 	player3.position.y = 200
+	player3.can_move = false
 	
 	player4._id = 4
 	player4.nickname = "Wyrm"
 	player4.character = load("res://src/characters/Wyrm.tscn")
 	player4.position.x = 900
 	player4.position.y = 200
+	player4.can_move = false
 	
 	add_child(player1)
 	add_child(player2)
@@ -131,8 +148,11 @@ func verify_players(player:CharacterBody2D)-> void:
 		set_random_disease()
 
 func game_over(winner: CharacterBody2D) -> void:
-	if hud and hud.countdown:
-		hud.countdown.hide_countdown(true)
+	if hud:
+		if hud.countdown:
+			hud.countdown.hide_countdown(true)
+		if hud.match_countdown:
+			hud.match_countdown.stop_countdown()
 	if winner.status.isAfflicted:
 		winner.cured()
 		
