@@ -91,18 +91,31 @@ Juego competitivo 2D de 3 a 4 jugadores en pantalla compartida. Un jugador recib
 ### 3.3 Módulo: Orquestación de Partida (`Game`)
 - **Tipo:** `Node2D`
 - **Flujo de Ejecución:**
-  1. `_ready()`: Configura el mundo, instancia el mapa seleccionado y posiciona a los jugadores.
-  2. Temporizador de inicio de ronda (Countdown 3-2-1).
-  3. Selección aleatoria del primer infectado vía `DiseaseFactory`.
-  4. Bucle de supervisión:
+  1. `_ready()`: Inicializa contadores de victorias (`scores`), añade música, HUD y temporizadores.
+  2. Bucle de Rondas (`start_round()`):
+     - Instancia el mapa seleccionado y posiciona a los jugadores.
+     - Temporizador de inicio de ronda (Countdown 3-2-1).
+     - Selección aleatoria del primer infectado vía `DiseaseFactory`.
+  3. Bucle de supervisión:
      - Detección de caídas fuera del mapa o impactos con hazards (`Spike`).
      - Actualización de la lista de `alive_players`.
-  5. Cuando `alive_players.size() == 1`:
-     - Disparar señal `game_over(winner_player)`.
-     - Invocar `TextWin` con animación.
-     - Botón de revancha o vuelta a selección de mapa.
+  4. Cuando `alive_players.size() == 1`:
+     - El superviviente suma +1 victoria en `scores`.
+     - Actualización visual en `ScoreHud` y `TextWin`.
+     - Si `victorias >= target_wins` (configurable, por defecto 3):
+       - Emite señal `match_won(winner_data, scores, target_wins)` y finaliza la partida dando paso a `VictoryScene`.
+     - Si aún nadie alcanza `target_wins`:
+       - Tras una breve pausa de celebración, se reinicia la siguiente ronda conservando las victorias.
 
-### 3.4 Módulo: Audio y Visualizador (`Playlist` / `MusicPlayer` / `Spectrum`)
+### 3.4 Módulo: Pantalla de Victoria de Partida (`VictoryScene`)
+- **Tipo:** `Control`
+- **Responsabilidades:**
+  - Mostrar al jugador campeón supremo con su sprite y animación correspondiente.
+  - Presentar la tabla de clasificación con las victorias obtenidas por cada jugador en la partida.
+  - Ofrecer opciones de 'Jugar de nuevo' (revancha directa) y 'Menú principal'.
+  - Soporte de interacción por ratón, teclado y mandos (gamepad).
+
+### 3.5 Módulo: Audio y Visualizador (`Playlist` / `MusicPlayer` / `Spectrum`)
 - **Tipo:** Subsistema de Audio Centralizado.
 - **Características:**
   - Lectura automática de archivos de música (`.ogg`) sin necesidad de hardcodear listas.
@@ -120,7 +133,10 @@ Juego competitivo 2D de 3 a 4 jugadores en pantalla compartida. Un jugador recib
 | `Player` | `player_died` | `(player: Player)` | `Game` | Actualiza la cuenta de jugadores vivos |
 | `Player` | `player_hit` | `(victim: Player, attacker: Player)` | `Game`, `FX` | Aplica empuje y evalúa posible contagio |
 | `Disease` | `disease_expired` | `(afflicted_player: Player)` | `Player`, `Game` | Ejecuta la muerte del jugador infectado |
-| `Game` | `round_won` | `(winner: Player)` | `Hud`, `TextWin` | Presenta la pantalla de victoria |
+| `Game` | `round_won` | `(winner: CharacterBody2D, wins: int, target: int)` | `Hud`, `TextWin` | Presenta la notificación de ganador de ronda |
+| `Game` | `match_won` | `(winner_data: Dictionary, scores: Dictionary, target: int)` | `Main` | Dispara la transición a `VictoryScene` |
+| `VictoryScene` | `play_again_requested` | `()` | `Main` | Reinicia una nueva partida con los mismos ajustes |
+| `VictoryScene` | `menu_requested` | `()` | `Main` | Regresa al menú principal |
 
 ---
 

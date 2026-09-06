@@ -57,6 +57,11 @@ func config_animation()-> void:
 	add_child(buttonTimer)
 	buttonTimer.start()
 
+func reset() -> void:
+	isInitiated = false
+	if musicPlayer and not musicPlayer.playing:
+		musicPlayer.play()
+
 func animate_button()-> void:
 	if startButton.is_visible_in_tree():
 		startButton.hide()

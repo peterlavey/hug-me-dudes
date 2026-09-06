@@ -130,7 +130,6 @@ func _create_confetti_emitter(direction: Vector2) -> CPUParticles2D:
 	return emitter
 
 func show_winner(winner: Variant) -> void:
-	_ensure_ui()
 	var winner_name: String = ""
 	if winner is String:
 		winner_name = winner
@@ -138,8 +137,26 @@ func show_winner(winner: Variant) -> void:
 		winner_name = str(winner.nickname)
 	else:
 		winner_name = str(winner)
+	show_round_winner(winner_name, -1, -1, false)
+
+func show_round_winner(winner_name: String, current_wins: int = -1, target_wins: int = -1, is_match_winner: bool = false) -> void:
+	_ensure_ui()
 	
-	winner_label.text = "¡" + winner_name.to_upper() + " ES EL GANADOR!"
+	if is_match_winner:
+		header_label.text = "★ ¡VICTORIA DEFINITIVA! ★"
+		winner_label.text = "¡" + winner_name.to_upper() + " GANA LA PARTIDA!"
+		if target_wins > 0:
+			subtitle_label.text = "¡PRIMER JUGADOR EN ALCANZAR " + str(target_wins) + " VICTORIAS!"
+		else:
+			subtitle_label.text = "¡CAMPEÓN DE LA PARTIDA!"
+	elif current_wins > 0 and target_wins > 0:
+		header_label.text = "★ ¡VICTORIA DE RONDA! ★"
+		winner_label.text = "¡" + winner_name.to_upper() + " GANA LA RONDA!"
+		subtitle_label.text = "VICTORIAS: %d / %d" % [current_wins, target_wins]
+	else:
+		header_label.text = "★ ¡VICTORIA! ★"
+		winner_label.text = "¡" + winner_name.to_upper() + " ES EL GANADOR!"
+		subtitle_label.text = "¡ÚLTIMO SUPERVIVIENTE EN PIE!"
 	
 	panel_container.visible = true
 	panel_container.modulate = Color(1.0, 1.0, 1.0, 1.0)

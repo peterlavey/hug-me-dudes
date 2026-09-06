@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `.godot/editor/Fire.tscn-folding-0a5d60dd4ee9014671f7ddff23447b8c.cfg` for custom node and resource folding settings.">
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_update4" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `MatchCountdown` script to manage pre-match countdown with animations, particle effects, and custom audio. Integrated into game flow and HUD configuration.">
       <change beforePath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SDD.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SDD.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/camera.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/camera.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/game.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/hud.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/hud.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/menu.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/textWin.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/textWin.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
-      <workItem from="1788729822853" duration="3013000" />
+      <workItem from="1788729822853" duration="4081000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -194,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788731962862</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added `MatchCountdown` script to manage pre-match countdown with animations, particle effects, and custom audio. Integrated into game flow and HUD configuration.">
+      <option name="closed" value="true" />
+      <created>1788732876115</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1788732876115</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +222,7 @@
     <MESSAGE value="Refactored `Disease` and player scripts to improve signal handling, modularity, and compatibility with Godot 4. Added countdown HUD for infection tracking and associated game event management." />
     <MESSAGE value="Added `CountdownHud` script to manage infection countdown display, including UI setup, animations, and dynamic style transitions." />
     <MESSAGE value="Added `.godot/editor/Fire.tscn-folding-0a5d60dd4ee9014671f7ddff23447b8c.cfg` for custom node and resource folding settings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added `.godot/editor/Fire.tscn-folding-0a5d60dd4ee9014671f7ddff23447b8c.cfg` for custom node and resource folding settings." />
+    <MESSAGE value="Added `MatchCountdown` script to manage pre-match countdown with animations, particle effects, and custom audio. Integrated into game flow and HUD configuration." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `MatchCountdown` script to manage pre-match countdown with animations, particle effects, and custom audio. Integrated into game flow and HUD configuration." />
   </component>
 </project>
