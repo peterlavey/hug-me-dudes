@@ -43,8 +43,9 @@ func config_button()-> void:
 	
 	startButton.underline = LinkButton.UNDERLINE_MODE_NEVER
 	
-	startButton.position.x = (get_window().get_size().x / 2) - 60
-	startButton.position.y = get_window().get_size().y / 2
+	var view_size: Vector2 = get_viewport_rect().size
+	startButton.position.x = (view_size.x / 2.0) - 60.0
+	startButton.position.y = view_size.y / 2.0
 	
 	startButton.scale = Vector2(2, 2)
 	

@@ -19,8 +19,11 @@ func _ready():
 func config_screen()-> void:
 	screen.texture = load("res://sprites/black.png")
 	screen.centered = false
-	screen.scale.x = get_window().get_size().x * 0.01
-	screen.scale.y = get_window().get_size().y * 0.01
+	var view_size: Vector2 = Vector2(1067, 600)
+	if is_inside_tree() and get_viewport() != null:
+		view_size = get_viewport().get_visible_rect().size
+	screen.scale.x = (view_size.x / 100.0) + 1.0
+	screen.scale.y = (view_size.y / 100.0) + 1.0
 	screen.modulate = Color8(0, 0, 0, 0)
 	if screen.get_parent() == null:
 		add_child(screen)

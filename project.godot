@@ -18,7 +18,11 @@ config/icon="res://sprites/icon.png"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/viewport_width=1067
+window/size/viewport_height=600
+window/size/resizable=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 
 [input]
 

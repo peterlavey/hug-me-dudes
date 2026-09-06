@@ -19,14 +19,15 @@ func _ready():
 	pass
 
 func config_menu()-> void:
-	var width = get_window().get_size().x
-	var height = get_window().get_size().y
+	var view_size: Vector2 = get_viewport_rect().size
+	var width = view_size.x
+	var height = view_size.y
 	
 	menu.scale.x = 0.4
 	menu.scale.y = 0.4
 	
-	menu.position.x = (width / 2) - (width * 0.2)
-	menu.position.y = (height / 2) - (height * 0.2)
+	menu.position.x = (width / 2.0) - (width * 0.2)
+	menu.position.y = (height / 2.0) - (height * 0.2)
 	
 	add_child(menu)
 

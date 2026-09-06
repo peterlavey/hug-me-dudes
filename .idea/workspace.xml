@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored disease-related scripts for improved type safety, alignment with Godot 4 standards, and code readability.">
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/editor/project_metadata.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/project_metadata.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/particles/Diarrhea.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/particles/Diarrhea.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/particles/Fire.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/particles/Fire.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/disease/disease.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/disease.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/disease/fulminatingDiarrhea.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/fulminatingDiarrhea.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/disease/spontaneousCombustion.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/spontaneousCombustion.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/game.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored particles and disease scripts to use `CPUParticles2D` for compatibility with Godot 4. Improved code readability and alignment with framework standards.">
+      <change beforePath="$PROJECT_DIR$/Main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/menu.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stageSelect.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stageSelect.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/transition.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/transition.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="3395" />
+    <option name="cachedIndexableFilesCount" value="3397" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -100,6 +93,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
+      <workItem from="1788729822853" duration="457000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -149,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788639431712</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactored particles and disease scripts to use `CPUParticles2D` for compatibility with Godot 4. Improved code readability and alignment with framework standards.">
+      <option name="closed" value="true" />
+      <created>1788729924805</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1788729924805</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +164,7 @@
     <MESSAGE value="Added development guidelines, context summary, and software design document for project standardization and future reference." />
     <MESSAGE value="Migrated `wood.tres` TileSet to `format=3` for Godot 4 compatibility and restructured resources with atlas sources." />
     <MESSAGE value="Refactored disease-related scripts for improved type safety, alignment with Godot 4 standards, and code readability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored disease-related scripts for improved type safety, alignment with Godot 4 standards, and code readability." />
+    <MESSAGE value="Refactored particles and disease scripts to use `CPUParticles2D` for compatibility with Godot 4. Improved code readability and alignment with framework standards." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored particles and disease scripts to use `CPUParticles2D` for compatibility with Godot 4. Improved code readability and alignment with framework standards." />
   </component>
 </project>
