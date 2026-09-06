@@ -1,43 +1,28 @@
 class_name Disease extends Node2D
 
-var label: Label
 var timer: Timer
-var timeLeft: float
+var timeLeft: float = 0.0
+var total_duration: float = 5.0
 var afflicted: CharacterBody2D
+
+signal time_updated(time_left: float, total_time: float)
+signal disease_stopped
 
 func _init() -> void:
 	config_timer()
-	config_label()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	show_time_left()
 
 func show_time_left() -> void:
-	if timer:
+	if timer and timer.time_left > 0:
 		timeLeft = timer.get_time_left()
-		if label:
-			label.text = str(snapped(timeLeft, 0.01))
+		time_updated.emit(timeLeft, total_duration)
 
 func remove_time_left() -> void:
-	if label and label.get_parent() == self:
-		remove_child(label)
 	if timer:
 		timer.stop()
-
-func config_label() -> void:
-	label = Label.new()
-	label.custom_minimum_size = Vector2(80, 30)
-	label.size = Vector2(80, 30)
-	label.position = Vector2(-40, -80)
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
-	label.add_theme_constant_override("shadow_offset_x", 1)
-	label.add_theme_constant_override("shadow_offset_y", 1)
-	label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
-	label.add_theme_constant_override("outline_size", 3)
-	
-	add_child(label)
+	disease_stopped.emit()
 
 func config_timer() -> void:
 	timer = Timer.new()
@@ -46,8 +31,11 @@ func config_timer() -> void:
 	add_child(timer)
 
 func start(seconds: float) -> void:
-	timer.set_wait_time(seconds)
-	timer.start()
+	total_duration = seconds
+	timeLeft = seconds
+	if timer:
+		timer.set_wait_time(seconds)
+		timer.start()
 
 func dead() -> void:
 	pass

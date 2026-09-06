@@ -108,6 +108,16 @@ func set_disease()-> void:
 func config_signals()-> void:
 	for player in players:
 		player.connect("on_died", Callable(self, "on_player_died"))
+		player.connect("on_infected", Callable(self, "on_player_infected"))
+		player.connect("on_cured", Callable(self, "on_player_cured"))
+
+func on_player_infected(player: CharacterBody2D, disease: Disease) -> void:
+	if hud and hud.countdown:
+		hud.countdown.start_countdown(disease, player)
+
+func on_player_cured(player: CharacterBody2D) -> void:
+	if hud and hud.countdown:
+		hud.countdown.stop_countdown(player)
 
 func on_player_died(player:CharacterBody2D)-> void:
 	players.erase(player)
@@ -121,6 +131,8 @@ func verify_players(player:CharacterBody2D)-> void:
 		set_random_disease()
 
 func game_over(winner: CharacterBody2D) -> void:
+	if hud and hud.countdown:
+		hud.countdown.hide_countdown(true)
 	if winner.status.isAfflicted:
 		winner.cured()
 		

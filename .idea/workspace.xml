@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored viewport-based UI scaling and positioning logic for improved consistency and compatibility with Godot 4. Added fullscreen toggle functionality using input events.">
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored `TextWin` UI and animation logic to enhance compatibility with Godot 4. Added tween-based transitions, winner-focused animations, and confetti particle effects. Updated `CustomCamera` to include smoother transitions for game over scenarios.">
+      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/camera.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/camera.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disease/disease.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/disease/disease.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/game.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/hud.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/hud.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/textWin.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/textWin.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
-      <workItem from="1788729822853" duration="1387000" />
+      <workItem from="1788729822853" duration="1995000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -160,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788730409139</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactored `TextWin` UI and animation logic to enhance compatibility with Godot 4. Added tween-based transitions, winner-focused animations, and confetti particle effects. Updated `CustomCamera` to include smoother transitions for game over scenarios.">
+      <option name="closed" value="true" />
+      <created>1788731254586</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1788731254586</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +184,7 @@
     <MESSAGE value="Refactored disease-related scripts for improved type safety, alignment with Godot 4 standards, and code readability." />
     <MESSAGE value="Refactored particles and disease scripts to use `CPUParticles2D` for compatibility with Godot 4. Improved code readability and alignment with framework standards." />
     <MESSAGE value="Refactored viewport-based UI scaling and positioning logic for improved consistency and compatibility with Godot 4. Added fullscreen toggle functionality using input events." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored viewport-based UI scaling and positioning logic for improved consistency and compatibility with Godot 4. Added fullscreen toggle functionality using input events." />
+    <MESSAGE value="Refactored `TextWin` UI and animation logic to enhance compatibility with Godot 4. Added tween-based transitions, winner-focused animations, and confetti particle effects. Updated `CustomCamera` to include smoother transitions for game over scenarios." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored `TextWin` UI and animation logic to enhance compatibility with Godot 4. Added tween-based transitions, winner-focused animations, and confetti particle effects. Updated `CustomCamera` to include smoother transitions for game over scenarios." />
   </component>
 </project>

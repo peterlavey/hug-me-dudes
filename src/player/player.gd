@@ -22,6 +22,8 @@ var CONSTANTS = load("res://src/player/constants.gd").new()
 var isKicking: bool = false
 
 signal on_died
+signal on_infected(player: CharacterBody2D, disease: Disease)
+signal on_cured(player: CharacterBody2D)
 
 func set_disease(_disease: Disease) -> void:
 	disease = _disease
@@ -29,6 +31,7 @@ func set_disease(_disease: Disease) -> void:
 	disease.afflicted = self
 
 	add_child(disease)
+	emit_signal("on_infected", self, disease)
 
 func _ready():
 	load_texture()
@@ -106,10 +109,13 @@ func hurts():
 	currentCollider.dead()
 
 func cured():
-	disease.remove_effects()
+	if disease:
+		disease.remove_effects()
+		if is_instance_valid(disease):
+			disease.queue_free()
+		disease = null
 	status.isAfflicted = false
-	disease.queue_free()
-	pass
+	emit_signal("on_cured", self)
 
 func infect():
 	var _disease = DiseaseFactory.get_disease(disease._name)
@@ -117,7 +123,6 @@ func infect():
 	currentCollider.set_disease(_disease)
 	
 	cured()
-	pass
 
 func dead()-> void:
 	status.isAlive = false
@@ -126,7 +131,9 @@ func dead()-> void:
 	set_collision(CONSTANTS.COLLISION_STATES.DEAD)
 	
 	if status.isAfflicted:
-		disease.remove_time_left()
+		if disease and is_instance_valid(disease):
+			disease.remove_time_left()
+		emit_signal("on_cured", self)
 
 func deathWith(killer):
 	if currentCollider.name == killer:
