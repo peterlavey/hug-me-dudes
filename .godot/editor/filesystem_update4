@@ -1,0 +1,10 @@
+res://Main.gd
+res://src/game/menu.gd
+res://src/game/transition.gd
+res://src/game/camera.gd
+res://src/game/game.gd
+res://src/game/hud.gd
+res://src/game/textWin.gd
+res://src/disease/disease.gd
+res://src/player/player.gd
+res://src/game/countdownHud.gd
