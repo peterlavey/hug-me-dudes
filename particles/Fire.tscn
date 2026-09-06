@@ -1,39 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=3]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0, 0.0572289, 0.135542, 0.198795, 0.569277, 0.716867, 0.849398 )
-colors = PackedColorArray( 1, 1, 1, 1, 0.811137, 0.778538, 0.289552, 1, 0.789063, 0.752653, 0.206512, 1, 0.914063, 0.691461, 0.164246, 1, 0.945313, 0.0900655, 0.0480042, 1, 0.943026, 0.13407, 0.0565096, 1, 0.964844, 0, 0, 1 )
+[sub_resource type="Curve" id="Curve_fire"]
+_data = [Vector2(0, 1), 0.0, -0.8, 0, 0, Vector2(1, 0.2), -1.1, 0.0, 0, 0]
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="Gradient" id="Gradient_fire"]
+offsets = PackedFloat32Array(0, 0.1, 0.3, 0.6, 0.85, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.85, 0.2, 1, 0.95, 0.65, 0.1, 1, 0.95, 0.2, 0.05, 1, 0.7, 0.05, 0.05, 0.8, 0.2, 0.0, 0.0, 0)
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0.7464 ), 0.0, -0.811816, 0, 0, Vector2( 0.989777, 0.298717 ), -1.10697, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticleProcessMaterial" id=5]
-emission_shape = 2
-emission_box_extents = Vector3( 40, 20, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-angular_velocity = 350.0
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 15.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
-
-[node name="Fire" type="GPUParticles2D"]
-modulate = Color( 1, 1, 1, 0.788235 )
-position = Vector2( -1.16644, -22.1606 )
+[node name="Fire" type="CPUParticles2D"]
+z_index = 2
+position = Vector2(0, -10)
 rotation = -1.5708
-amount = 700
-lifetime = 0.5
+amount = 60
+lifetime = 0.6
 randomness = 0.3
 local_coords = false
-process_material = SubResource( 5 )
+emission_shape = 3
+emission_rect_extents = Vector2(15, 8)
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 140.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 8.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_fire")
+color_ramp = SubResource("Gradient_fire")

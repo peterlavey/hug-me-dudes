@@ -114,8 +114,6 @@ func cured():
 func infect():
 	var _disease = DiseaseFactory.get_disease(disease._name)
 	
-	_disease.position.x = -20
-	_disease.position.y = -150
 	currentCollider.set_disease(_disease)
 	
 	cured()

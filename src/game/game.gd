@@ -103,9 +103,6 @@ func set_disease()-> void:
 		return
 	var disease = diseaseFactory.get_random_disease()
 	
-	disease.position.x = -20
-	disease.position.y = -150
-	
 	players[randi() % players.size()].set_disease(disease)
 
 func config_signals()-> void:
