@@ -4,12 +4,12 @@ var Player = load("res://src/player/player.gd")
 var stage
 var diseaseFactory = load("res://src/disease/diseaseFactory.gd").new()
 var playlist = load("res://src/playlist/playlist.gd").new()
-var camera = load("res://src/game/camera.gd").new()
-var hud = load("res://src/game/hud.gd").new()
+var camera: CustomCamera = load("res://src/game/camera.gd").new()
+var hud: Hud = load("res://src/game/hud.gd").new()
 
-var players:Array
-var timerDisease:Timer
-var timerWinner:Timer
+var players: Array = []
+var timerDisease: Timer
+var timerWinner: Timer
 
 func _ready():
 	init()
@@ -120,19 +120,15 @@ func verify_players(player:CharacterBody2D)-> void:
 	elif player.status.isAfflicted:
 		set_random_disease()
 
-func game_over(winner)-> void:
+func game_over(winner: CharacterBody2D) -> void:
 	if winner.status.isAfflicted:
 		winner.cured()
 		
 	show_winner(winner)
 
-func show_winner(winner)-> void:
+func show_winner(winner: CharacterBody2D) -> void:
 	hud.textWin.show_winner(winner.nickname)
-	
-	camera.set_zoom(Vector2(0.5, 0.5))
-	winner.add_child(camera)
-	camera.make_current()
-	
+	camera.focus_on_winner(winner)
 	timerWinner.start()
 
 func reload()-> void:
