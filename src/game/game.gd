@@ -111,6 +111,8 @@ func start_round() -> void:
 	if hud:
 		hud.textWin.remove_winner()
 		hud.countdown.hide_countdown(true)
+		if hud.disease_announcement:
+			hud.disease_announcement.hide_announcement(true)
 		hud.score_hud.update_scores(scores, target_wins)
 	
 	# Iniciar cuenta atrás de la ronda
@@ -185,6 +187,8 @@ func set_disease() -> void:
 func on_player_infected(player: CharacterBody2D, disease: Disease) -> void:
 	if hud and hud.countdown:
 		hud.countdown.start_countdown(disease, player)
+	if hud and hud.disease_announcement:
+		hud.disease_announcement.announce_disease(disease)
 
 func on_player_cured(player: CharacterBody2D) -> void:
 	if hud and hud.countdown:
@@ -211,6 +215,8 @@ func handle_round_winner(winner: CharacterBody2D) -> void:
 			hud.countdown.hide_countdown(true)
 		if hud.match_countdown:
 			hud.match_countdown.stop_countdown()
+		if hud.disease_announcement:
+			hud.disease_announcement.hide_announcement(true)
 	
 	if "status" in winner and winner.status != null and "isAfflicted" in winner.status and winner.status.isAfflicted:
 		if winner.has_method("cured"):
@@ -264,6 +270,8 @@ func handle_round_draw() -> void:
 			hud.countdown.hide_countdown(true)
 		if hud.match_countdown:
 			hud.match_countdown.stop_countdown()
+		if hud.disease_announcement:
+			hud.disease_announcement.hide_announcement(true)
 		if hud.textWin:
 			hud.textWin.show_round_winner("EMPATE", -1, target_wins, false)
 	

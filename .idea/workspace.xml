@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Enhanced `player.gd` to improve infection logic with checks for player and target statuses, added safeguards for invalid states, and expanded `dead()` functionality to include `isDead` state.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `_dead_physics` function to `player.gd` for handling player motion and behavior while in the dead state. Integrated it into the main physics process flow.">
       <change beforePath="$PROJECT_DIR$/src/game/countdownHud.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/countdownHud.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/match_countdown.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/match_countdown.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/game.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/hud.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/hud.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
-      <workItem from="1788729822853" duration="8975000" />
+      <workItem from="1788729822853" duration="9403000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -214,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788741065882</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Refactored `CountdownHud` and `MatchCountdown` scripts to improve UI setup, anchor handling, and pivot logic. Simplified code by using `set_anchors_and_offsets_preset` and ensuring consistent scaling, rotation, and positioning.">
+      <option name="closed" value="true" />
+      <created>1788744106732</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1788744106732</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added `_dead_physics` function to `player.gd` for handling player motion and behavior while in the dead state. Integrated it into the main physics process flow.">
+      <option name="closed" value="true" />
+      <created>1788744252948</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1788744252948</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +252,8 @@
     <MESSAGE value="Added `MatchCountdown` script to manage pre-match countdown with animations, particle effects, and custom audio. Integrated into game flow and HUD configuration." />
     <MESSAGE value="Implemented `ScoreHud` for dynamic score tracking and player highlight visualization, added `VictoryScene` for match-end celebration and leaderboard display, and integrated both into game logic with transitions and event handling." />
     <MESSAGE value="Enhanced `player.gd` to improve infection logic with checks for player and target statuses, added safeguards for invalid states, and expanded `dead()` functionality to include `isDead` state." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhanced `player.gd` to improve infection logic with checks for player and target statuses, added safeguards for invalid states, and expanded `dead()` functionality to include `isDead` state." />
+    <MESSAGE value="Refactored `CountdownHud` and `MatchCountdown` scripts to improve UI setup, anchor handling, and pivot logic. Simplified code by using `set_anchors_and_offsets_preset` and ensuring consistent scaling, rotation, and positioning." />
+    <MESSAGE value="Added `_dead_physics` function to `player.gd` for handling player motion and behavior while in the dead state. Integrated it into the main physics process flow." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `_dead_physics` function to `player.gd` for handling player motion and behavior while in the dead state. Integrated it into the main physics process flow." />
   </component>
 </project>

@@ -9,3 +9,4 @@ res://src/disease/disease.gd
 res://src/player/player.gd
 res://src/game/countdownHud.gd
 res://src/game/match_countdown.gd
+res://src/game/disease_announcement.gd

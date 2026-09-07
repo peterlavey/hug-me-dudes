@@ -197,29 +197,14 @@ func start_countdown(disease: Disease, afflicted_player: CharacterBody2D = null)
 		_entry_tween.parallel().tween_property(panel_container, "modulate:a", 1.0, 0.25)
 
 func _update_header_text() -> void:
-	var disease_title: String = "INFECCIÓN"
-	if _current_disease != null:
-		var raw_name: String = ""
-		if "_name" in _current_disease:
-			raw_name = str(_current_disease._name)
-		elif "name" in _current_disease:
-			raw_name = str(_current_disease.name)
-		
-		if raw_name == "SpontaneousCombustion":
-			disease_title = "🔥 COMBUSTIÓN ESPONTÁNEA"
-		elif raw_name == "FulminatingDiarrhea":
-			disease_title = "☣ DIARREA FULMINANTE"
-		elif raw_name != "":
-			disease_title = "☣ " + raw_name.to_upper()
-	
 	var player_name: String = ""
 	if _current_afflicted != null and "nickname" in _current_afflicted:
 		player_name = str(_current_afflicted.nickname).to_upper()
 	
 	if player_name != "":
-		header_label.text = disease_title + " • " + player_name
+		header_label.text = "☣ INFECTADO: " + player_name
 	else:
-		header_label.text = disease_title
+		header_label.text = "☣ INFECCIÓN ACTIVA"
 
 func _update_display(time_remaining: float) -> void:
 	var clamped_time: float = max(0.0, time_remaining)
