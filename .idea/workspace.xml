@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored `MusicPlayer` to improve song management, HUD integration, and playback flow. Enhanced HUD with animations and dynamic song title display. Improved handling of empty or invalid song lists.">
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `StageSelect` system with a new customizable UI for stage selection, improved metadata support, navigation controls, and audio-visual feedback. Updated `Main.gd` for integration and legacy compatibility.">
+      <change afterPath="$PROJECT_DIR$/sprites/character/idle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/editor/filesystem_cache10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/global_script_class_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godot/editor/filesystem_update4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.godot/uid_cache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.godot/uid_cache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stageSelect.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stageSelect.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/game.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,16 +69,26 @@
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "junie.plugin.stays.banner.dismissed": "true",
-    "last_opened_file_path": "/Users/peter/Workspace/hug-me-dudes",
+    "last_opened_file_path": "/Users/peter/Workspace/hug-me-dudes/sprites/character/idle",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sprites/character/idle" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sprites/character" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -95,7 +106,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
-      <workItem from="1788729822853" duration="11854000" />
+      <workItem from="1788729822853" duration="13506000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -257,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788745666306</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added `StageSelect` system with a new customizable UI for stage selection, improved metadata support, navigation controls, and audio-visual feedback. Updated `Main.gd` for integration and legacy compatibility.">
+      <option name="closed" value="true" />
+      <created>1788747164771</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1788747164771</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +303,7 @@
     <MESSAGE value="Added `DiseaseAnnouncement` script for animated disease alerts with retro-inspired UI. Integrated into HUD and game events for infection announcements." />
     <MESSAGE value="Refactored `TextWin` and `CountdownHud` scripts to streamline anchor and offset handling using `set_anchors_and_offsets_preset`. Introduced `TOP_OFFSET` constant for improved consistency in UI positioning." />
     <MESSAGE value="Refactored `MusicPlayer` to improve song management, HUD integration, and playback flow. Enhanced HUD with animations and dynamic song title display. Improved handling of empty or invalid song lists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored `MusicPlayer` to improve song management, HUD integration, and playback flow. Enhanced HUD with animations and dynamic song title display. Improved handling of empty or invalid song lists." />
+    <MESSAGE value="Added `StageSelect` system with a new customizable UI for stage selection, improved metadata support, navigation controls, and audio-visual feedback. Updated `Main.gd` for integration and legacy compatibility." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `StageSelect` system with a new customizable UI for stage selection, improved metadata support, navigation controls, and audio-visual feedback. Updated `Main.gd` for integration and legacy compatibility." />
   </component>
 </project>

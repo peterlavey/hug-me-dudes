@@ -180,16 +180,24 @@ func deathWith(killer):
 	if currentCollider.name == killer:
 		dead()
 
-func load_texture():
+func load_texture() -> void:
+	if character == null:
+		if ResourceLoader.exists("res://src/characters/Character.tscn"):
+			character = load("res://src/characters/Character.tscn")
+		else:
+			character = load("res://src/characters/Peter.tscn")
 	_animation = character.instantiate()
 	_animation.connect("animation_finished", Callable(self, "animation_finished"))
 	add_child(_animation)
 
-func set_texture(newTexture):
-	_animation = character.instantiate()
-	add_child(_animation)
+func set_texture(newTexture: PackedScene = null) -> void:
+	if newTexture != null:
+		character = newTexture
+	if _animation != null and is_instance_valid(_animation):
+		_animation.queue_free()
+	load_texture()
 
-func animation_finished():
+func animation_finished() -> void:
 	if _animation.animation == 'Kick':
 		isKicking = false
 	elif _animation.animation == 'Dead':

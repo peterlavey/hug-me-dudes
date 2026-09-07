@@ -26,7 +26,7 @@ var timerRoundEnd: Timer
 var timerMatchEnd: Timer
 
 const PLAYER_DEFAULTS: Array[Dictionary] = [
-	{ "id": 1, "nickname": "Peter", "character": "res://src/characters/Peter.tscn", "x": 300.0, "y": 200.0 },
+	{ "id": 1, "nickname": "Peter", "character": "res://src/characters/Character.tscn", "x": 300.0, "y": 200.0 },
 	{ "id": 2, "nickname": "Kenny", "character": "res://src/characters/Kenny.tscn", "x": 500.0, "y": 200.0 },
 	{ "id": 3, "nickname": "Bestian", "character": "res://src/characters/Bestian.tscn", "x": 700.0, "y": 200.0 },
 	{ "id": 4, "nickname": "Wyrm", "character": "res://src/characters/Wyrm.tscn", "x": 900.0, "y": 200.0 }
@@ -241,11 +241,15 @@ func handle_round_winner(winner: CharacterBody2D) -> void:
 		if hud and hud.textWin:
 			hud.textWin.show_round_winner(winner.nickname, current_wins, target_wins, true)
 		
+		var winner_char_path: String = "res://src/characters/" + winner.nickname + ".tscn"
+		if winner.character != null and winner.character.resource_path != "":
+			winner_char_path = winner.character.resource_path
+		
 		var winner_data: Dictionary = {
 			"id": winner_id,
 			"_id": winner_id,
 			"nickname": winner.nickname,
-			"character_path": "res://src/characters/" + winner.nickname + ".tscn"
+			"character_path": winner_char_path
 		}
 		
 		emit_signal("round_won", winner, current_wins, target_wins)

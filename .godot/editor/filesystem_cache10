@@ -1,13 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1788745914
+::res://::1788748327
 export_presets.cfg::TextFile::-1::1788634533::0::1::::<><><>0<>0<><>::
 icon.ico::OtherFile::-1::1788634533::0::1::::<><><>0<>0<><>::
-Main.gd::GDScript::849994430518439695::1788745902::0::1::::<>Node<><>0<>0<><>::
+Main.gd::GDScript::849994430518439695::1788746292::0::1::::<>Node<><>0<>0<><>::
 Main.tscn::PackedScene::-1::1788634570::0::1::::<><><>0<>0<><>::res://Main.gd
 Node2D.gd::GDScript::9089380862413594880::1788634570::0::1::::<>Node2D<><>0<>0<><>::
 Node2D.tscn::PackedScene::-1::1788634570::0::1::::<><><>0<>0<><>::res://Node2D.gd<>res://sprites/black.png
 README.md::TextFile::-1::1788637690::0::1::::<><><>0<>0<><>::
-test_stage_select.gd::GDScript::4058422391899298074::1788745914::0::1::::<>SceneTree<><>0<>0<><>::
+test_create_char.gd::GDScript::1348627410354281726::1788748327::0::1::::<>SceneTree<><>0<>1<><>::
 ::res://docs/::1788733880
 SDD.md::TextFile::-1::1788733880::0::1::::<><><>0<>0<><>::
 ::res://particles/::1788640344
@@ -22,7 +22,7 @@ song.ogg::AudioStreamOggVorbis::8792483287212960621::1788634533::1788634582::1::
 Dark Souls III Soundtrack OST - Iudex Gundyr.ogg::AudioStreamOggVorbis::8585620588566563251::1788634533::1788634582::1::::<><><>0<>0<>eda864407c960d61cde360279f45a99f<>res://.godot/imported/Dark Souls III Soundtrack OST - Iudex Gundyr.ogg-e3958477e19f3b026811d9084ee800bd.oggvorbisstr::
 Hard Trance Techno Rave Music- trancElovE.ogg::AudioStreamOggVorbis::506387623915751236::1788634533::1788634582::1::::<><><>0<>0<>f1e947ff8311cea87ba55beba8e19022<>res://.godot/imported/Hard Trance Techno Rave Music- trancElovE.ogg-6b0db65483b5857c19b6098cde8d5cfe.oggvorbisstr::
 Power Rangers SNES - Boss.ogg::AudioStreamOggVorbis::1983190581161328330::1788634533::1788634582::1::::<><><>0<>0<>edc34c7d703da021b9b1a55c58c7cb56<>res://.godot/imported/Power Rangers SNES - Boss.ogg-a594ab9c5fd16044966463c74f761c40.oggvorbisstr::
-::res://sprites/::1788634582
+::res://sprites/::1788748009
 black.png::CompressedTexture2D::8948358079064409731::1788634533::1788634582::1::::<><><>0<>0<>05cf730847f9cd33859e427cd86df394<>res://.godot/imported/black.png-04ade258c5eed733dac5196f659b84c8.ctex::
 diarrhea.png::CompressedTexture2D::5714481330612282301::1788634533::1788634582::1::::<><><>0<>0<>f7e223c601895942945bd11d81b2e4f8<>res://.godot/imported/diarrhea.png-ff6d15ff0c4ac5a798e2804f9f3ea2bd.ctex::
 icon2.png::CompressedTexture2D::8200523426985539249::1788634533::1788634582::1::::<><><>0<>0<>076612d3e0022f3ce38ae582d2228a7d<>res://.godot/imported/icon2.png-6ec0c33e63a1670c8455eb07cf961844.ctex::
@@ -84,6 +84,8 @@ tiles.png::CompressedTexture2D::4056283285639151993::1788634460::1788634582::1::
 12.png::CompressedTexture2D::1002386556312801776::1788634533::1788634582::1::::<><><>0<>0<>5566890467168b398a8e86bfd1a685a5<>res://.godot/imported/12.png-7703cfe217f9358e4491e9e87b164b20.ctex::
 13.png::CompressedTexture2D::5303635923979084401::1788634533::1788634582::1::::<><><>0<>0<>e3e576a9befcf97f9a03b36d5c199b31<>res://.godot/imported/13.png-50b17590cb9a7142b3f34d7a62125539.ctex::
 14.png::CompressedTexture2D::5136750390282637457::1788634533::1788634582::1::::<><><>0<>0<>b53c859e57ab832652c20828788a75b0<>res://.godot/imported/14.png-9f6937b1c75ad611c8061f24891106dc.ctex::
+::res://sprites/character/::1788748033
+idle.png::CompressedTexture2D::5421860514914880601::1788747864::1788748334::1::::<><><>0<>0<>2da53fe959eefcf8d1b6401605d68a48<>res://.godot/imported/idle.png-4a1d9823ca5ed131d0fea580169ed4d4.ctex::
 ::res://sprites/Kenny/::1788634533
 ::res://sprites/Kenny/Dead/::1788634582
 1.png::CompressedTexture2D::2074008994492227569::1788634533::1788634582::1::::<><><>0<>0<>928601a2bcab8437be95884f42dc93d5<>res://.godot/imported/1.png-4d3e0b7169b7e022822f3b47d92d5da7.ctex::
@@ -274,7 +276,7 @@ disease.gd::GDScript::9023873431302765959::1788731539::0::1::::Disease<>Node2D<>
 diseaseFactory.gd::GDScript::8214094561102578432::1788639027::0::1::::DiseaseFactory<>RefCounted<><>0<>0<><>::
 fulminatingDiarrhea.gd::GDScript::9155065825352295453::1788640360::0::1::::FulminatingDiarrhea<>Disease<><>0<>0<><>::
 spontaneousCombustion.gd::GDScript::1527636459929901150::1788640356::0::1::::SpontaneousCombustion<>Disease<><>0<>0<><>::
-::res://src/game/::1788745878
+::res://src/game/::1788746694
 camera.gd::GDScript::7174477471239893390::1788734074::0::1::::CustomCamera<>Camera2D<><>0<>0<><>::
 countdownHud.gd::GDScript::1906808049611144579::1788744810::0::1::::CountdownHud<>Control<><>0<>0<><>::
 disease_announcement.gd::GDScript::1963365716383177728::1788744616::0::1::::DiseaseAnnouncement<>Control<><>0<>0<><>::
@@ -285,7 +287,7 @@ menu.gd::GDScript::1436589078292511984::1788733315::0::1::::Menu<>Node2D<><>0<>0
 score_hud.gd::GDScript::3385262375302487017::1788733172::0::1::::ScoreHud<>Control<><>0<>0<><>::
 stageSelect.gd::GDScript::2337990472550011912::1788745878::0::1::::<>StageSelect<><>0<>0<><>::
 stageSelect.tscn::PackedScene::-1::1788745871::0::1::::<><><>0<>0<><>::res://src/game/stage_select.gd
-stage_select.gd::GDScript::4675192082807646375::1788745858::0::1::::StageSelect<>Control<><>0<>0<><>::
+stage_select.gd::GDScript::4675192082807646375::1788746694::0::1::::StageSelect<>Control<><>0<>0<><>::
 stage_select.tscn::PackedScene::-1::1788745868::0::1::::<><><>0<>0<><>::res://src/game/stage_select.gd
 textWin.gd::GDScript::6804479834578265089::1788744829::0::1::::TextWin<>Control<><>0<>0<><>::
 transition.gd::GDScript::1622165827860291129::1788730224::0::1::::Transition<>Node<><>0<>0<><>::

@@ -1,0 +1,102 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://sprites/character/idle.png" id="1_0vwpq"]
+[ext_resource type="Script" path="res://src/characters/character_sprite.gd" id="2_wa5wg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pst11"]
+atlas = ExtResource("1_0vwpq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax0s0"]
+atlas = ExtResource("1_0vwpq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qccdv"]
+atlas = ExtResource("1_0vwpq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox3ed"]
+atlas = ExtResource("1_0vwpq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myb5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pst11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3ed")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pst11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3ed")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pst11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3ed")
+}],
+"loop": false,
+"name": &"Kick",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pst11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3ed")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character" type="AnimatedSprite2D" unique_id=2107503844]
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_myb5a")
+animation = &"Idle"
+script = ExtResource("2_wa5wg")
