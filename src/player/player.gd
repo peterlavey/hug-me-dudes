@@ -27,6 +27,8 @@ signal on_infected(player: CharacterBody2D, disease: Disease)
 signal on_cured(player: CharacterBody2D)
 
 func set_disease(_disease: Disease) -> void:
+	if not status.isAlive:
+		return
 	disease = _disease
 	status.isAfflicted = true
 	disease.afflicted = self
@@ -112,7 +114,11 @@ func on_player_collides():
 		currentCollider = get_slide_collision(i).get_collider()
 
 		if currentCollider and currentCollider.is_in_group("players"):
-			if status.isAfflicted:
+			var is_target_alive: bool = true
+			if "status" in currentCollider and currentCollider.status:
+				if ("isAlive" in currentCollider.status and not currentCollider.status.isAlive) or ("isDead" in currentCollider.status and currentCollider.status.isDead):
+					is_target_alive = false
+			if status.isAfflicted and is_target_alive:
 				infect()
 			#elif isKicking:
 			#	hurts()
@@ -132,6 +138,13 @@ func cured():
 	emit_signal("on_cured", self)
 
 func infect():
+	if not currentCollider or not is_instance_valid(currentCollider):
+		return
+	if "status" in currentCollider and currentCollider.status:
+		if ("isAlive" in currentCollider.status and not currentCollider.status.isAlive) or ("isDead" in currentCollider.status and currentCollider.status.isDead):
+			return
+	if not disease:
+		return
 	var _disease = DiseaseFactory.get_disease(disease._name)
 	
 	currentCollider.set_disease(_disease)
@@ -140,6 +153,7 @@ func infect():
 
 func dead()-> void:
 	status.isAlive = false
+	status.isDead = true
 	emit_signal("on_died", self)
 	_animation.play("Dead")
 	set_collision(CONSTANTS.COLLISION_STATES.DEAD)
