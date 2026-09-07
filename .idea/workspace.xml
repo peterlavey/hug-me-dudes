@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Added `DiseaseAnnouncement` script for animated disease alerts with retro-inspired UI. Integrated into HUD and game events for infection announcements.">
-      <change beforePath="$PROJECT_DIR$/src/game/countdownHud.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/countdownHud.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/textWin.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/textWin.gd" afterDir="false" />
+    <list default="true" id="e0d760aa-c757-46a2-84b2-e533eab2cc9a" name="Changes" comment="Refactored `TextWin` and `CountdownHud` scripts to streamline anchor and offset handling using `set_anchors_and_offsets_preset`. Introduced `TOP_OFFSET` constant for improved consistency in UI positioning.">
+      <change beforePath="$PROJECT_DIR$/src/playlist/musicPlayer.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/playlist/musicPlayer.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playlist/playlist.gd" beforeDir="false" afterPath="$PROJECT_DIR$/src/playlist/playlist.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
       <workItem from="1788634525418" duration="206000" />
       <workItem from="1788634753682" duration="3515000" />
       <workItem from="1788638312681" duration="2110000" />
-      <workItem from="1788729822853" duration="9814000" />
+      <workItem from="1788729822853" duration="10515000" />
     </task>
     <task id="LOCAL-00001" summary="Converted texture imports to `CompressedTexture2D` format for optimization.">
       <option name="closed" value="true" />
@@ -237,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788744663665</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Refactored `TextWin` and `CountdownHud` scripts to streamline anchor and offset handling using `set_anchors_and_offsets_preset`. Introduced `TOP_OFFSET` constant for improved consistency in UI positioning.">
+      <option name="closed" value="true" />
+      <created>1788744941739</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1788744941739</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +270,7 @@
     <MESSAGE value="Refactored `CountdownHud` and `MatchCountdown` scripts to improve UI setup, anchor handling, and pivot logic. Simplified code by using `set_anchors_and_offsets_preset` and ensuring consistent scaling, rotation, and positioning." />
     <MESSAGE value="Added `_dead_physics` function to `player.gd` for handling player motion and behavior while in the dead state. Integrated it into the main physics process flow." />
     <MESSAGE value="Added `DiseaseAnnouncement` script for animated disease alerts with retro-inspired UI. Integrated into HUD and game events for infection announcements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added `DiseaseAnnouncement` script for animated disease alerts with retro-inspired UI. Integrated into HUD and game events for infection announcements." />
+    <MESSAGE value="Refactored `TextWin` and `CountdownHud` scripts to streamline anchor and offset handling using `set_anchors_and_offsets_preset`. Introduced `TOP_OFFSET` constant for improved consistency in UI positioning." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored `TextWin` and `CountdownHud` scripts to streamline anchor and offset handling using `set_anchors_and_offsets_preset`. Introduced `TOP_OFFSET` constant for improved consistency in UI positioning." />
   </component>
 </project>
