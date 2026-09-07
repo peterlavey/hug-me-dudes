@@ -2,13 +2,14 @@ extends Node
 
 var game: Game = null
 var menu = load("res://src/game/menu.gd").new()
-var stageSelect = load("res://src/game/stageSelect.gd").new()
+var stage_select_scene: PackedScene = preload("res://src/game/stage_select.tscn")
+var stageSelect: StageSelect = null
 var transition = load("res://src/game/transition.gd").new()
 var victory_scene: VictoryScene = null
 
 var timer: Timer = Timer.new()
 var currentStage: String = ""
-var world: Node
+var world: Node = Node.new()
 
 @export var target_wins: int = 3
 
@@ -30,8 +31,8 @@ func toggle_fullscreen() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func config_world() -> void:
-	world = Node.new()
-	add_child(world)
+	if world.get_parent() == null:
+		add_child(world)
 
 func config_transition() -> void:
 	transition.connect("on_blackout", Callable(self, "init_game"))
@@ -55,10 +56,17 @@ func skip_story() -> void:
 	timer.start(0.5)
 
 func config_stage_select() -> void:
-	if not stageSelect.is_connected("on_selected_stage", Callable(self, "start_game")):
-		stageSelect.connect("on_selected_stage", Callable(self, "start_game"))
-	if menu.get_parent() == world:
+	if menu != null and is_instance_valid(menu) and menu.get_parent() == world:
 		world.remove_child(menu)
+	
+	if stageSelect == null or not is_instance_valid(stageSelect):
+		stageSelect = stage_select_scene.instantiate() as StageSelect
+		stageSelect.connect("on_selected_stage", Callable(self, "start_game"))
+		stageSelect.connect("back_requested", Callable(self, "on_return_to_menu"))
+	
+	if stageSelect.has_method("reset"):
+		stageSelect.reset()
+	
 	if stageSelect.get_parent() == null:
 		world.add_child(stageSelect)
 
@@ -71,7 +79,7 @@ func start_transition() -> void:
 	transition.light_to_dark_to_light()
 
 func init_game() -> void:
-	if stageSelect.get_parent() == world:
+	if stageSelect != null and is_instance_valid(stageSelect) and stageSelect.get_parent() == world:
 		world.remove_child(stageSelect)
 	
 	if game != null and is_instance_valid(game):
@@ -118,6 +126,10 @@ func on_play_again() -> void:
 	init_game()
 
 func on_return_to_menu() -> void:
+	if stageSelect != null and is_instance_valid(stageSelect):
+		if stageSelect.get_parent() == world:
+			world.remove_child(stageSelect)
+	
 	if victory_scene != null and is_instance_valid(victory_scene):
 		if victory_scene.get_parent() == world:
 			world.remove_child(victory_scene)
