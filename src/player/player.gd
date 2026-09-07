@@ -51,10 +51,48 @@ func config_collision() -> void:
 	
 	add_child(collision)
 
+func is_using_character_sprites() -> bool:
+	if _animation is CharacterSprite:
+		return true
+	if character != null:
+		var char_path: String = character.resource_path
+		if char_path.contains("sprites/character") or char_path.ends_with("Character.tscn"):
+			return true
+	if _animation != null and _animation.sprite_frames != null:
+		var anim_names = _animation.sprite_frames.get_animation_names()
+		for a_name in anim_names:
+			var f_count = _animation.sprite_frames.get_frame_count(a_name)
+			for i in range(f_count):
+				var tex = _animation.sprite_frames.get_frame_texture(a_name, i)
+				if tex is AtlasTexture:
+					var atlas_path = (tex as AtlasTexture).atlas.resource_path if (tex as AtlasTexture).atlas else ""
+					if atlas_path.contains("sprites/character"):
+						return true
+				elif tex != null:
+					if tex.resource_path.contains("sprites/character"):
+						return true
+	return false
+
 func set_collision(collisionState) -> void:
-	if collision and collision.shape is RectangleShape2D:
-		collision.shape.size = collisionState.SIZE * 2.0
-		collision.position = Vector2(collisionState.POSITION.X, collisionState.POSITION.Y)
+	if not collision or not (collision.shape is RectangleShape2D):
+		return
+	
+	if is_using_character_sprites():
+		var is_dead_state: bool = (collisionState == CONSTANTS.COLLISION_STATES.DEAD) or (not status.isAlive)
+		var state_str: String = "DEAD" if is_dead_state else "INITIAL"
+		if _animation is CharacterSprite:
+			var shape_data: Dictionary = (_animation as CharacterSprite).get_collision_shape_data(state_str)
+			collision.shape.size = shape_data["size"]
+			collision.position = shape_data["position"]
+			return
+		elif _animation != null and _animation.sprite_frames != null:
+			var shape_data: Dictionary = CharacterSprite.calculate_collision_data_for_node(_animation, state_str)
+			collision.shape.size = shape_data["size"]
+			collision.position = shape_data["position"]
+			return
+
+	collision.shape.size = collisionState.SIZE * 2.0
+	collision.position = Vector2(collisionState.POSITION.X, collisionState.POSITION.Y)
 
 func _physics_process(delta):
 	if status.isAlive:
@@ -196,6 +234,11 @@ func set_texture(newTexture: PackedScene = null) -> void:
 	if _animation != null and is_instance_valid(_animation):
 		_animation.queue_free()
 	load_texture()
+	if collision != null:
+		if status.isAlive:
+			set_collision(CONSTANTS.COLLISION_STATES.INITIAL)
+		else:
+			set_collision(CONSTANTS.COLLISION_STATES.DEAD)
 
 func animation_finished() -> void:
 	if _animation.animation == 'Kick':
