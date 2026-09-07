@@ -63,8 +63,21 @@ func _physics_process(delta):
 			on_player_collides()
 		else:
 			_idle_physics()
+	else:
+		_dead_physics()
 	
 	pass
+
+func _dead_physics() -> void:
+	motion.y += GRAVITY
+	if is_on_floor():
+		motion.x = lerp(motion.x, 0.0, 0.2)
+	else:
+		motion.x = lerp(motion.x, 0.0, 0.05)
+	set_velocity(motion)
+	set_up_direction(UP)
+	move_and_slide()
+	motion = velocity
 
 func _idle_physics() -> void:
 	motion.y += GRAVITY
