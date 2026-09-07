@@ -71,17 +71,9 @@ func config_ui() -> void:
 	panel_container.add_theme_stylebox_override("panel", _panel_style)
 	
 	panel_container.layout_mode = 1
-	panel_container.anchors_preset = Control.PRESET_CENTER
-	panel_container.anchor_left = 0.5
-	panel_container.anchor_right = 0.5
-	panel_container.anchor_top = 0.5
-	panel_container.anchor_bottom = 0.5
-	panel_container.offset_left = 0.0
-	panel_container.offset_right = 0.0
-	panel_container.offset_top = 0.0
-	panel_container.offset_bottom = 0.0
 	panel_container.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	panel_container.grow_vertical = Control.GROW_DIRECTION_BOTH
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -264,14 +256,16 @@ func _animate_step(step: int) -> void:
 	_panel_style.border_color = step_color
 	
 	# Asegurar centrado y pivote
+	panel_container.scale = Vector2.ONE
+	panel_container.rotation = 0.0
 	panel_container.reset_size()
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
-	if panel_container.size.x > container_size.x:
-		container_size = panel_container.size
-	panel_container.pivot_offset = Vector2(container_size.x / 2.0, container_size.y / 2.0)
+	panel_container.size = container_size
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	panel_container.pivot_offset = Vector2(panel_container.size.x / 2.0, panel_container.size.y / 2.0)
 	
-	particles_left.position = Vector2(0.0, container_size.y / 2.0)
-	particles_right.position = Vector2(container_size.x, container_size.y / 2.0)
+	particles_left.position = Vector2(0.0, panel_container.size.y / 2.0)
+	particles_right.position = Vector2(panel_container.size.x, panel_container.size.y / 2.0)
 	
 	_play_beep(step)
 	emit_signal("step_changed", step, step_text)
@@ -341,6 +335,8 @@ func hide_display() -> void:
 	_is_counting = false
 	if panel_container:
 		panel_container.visible = false
+		panel_container.scale = Vector2.ONE
+		panel_container.rotation = 0.0
 	if particles_left:
 		particles_left.emitting = false
 	if particles_right:

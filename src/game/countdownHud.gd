@@ -84,15 +84,9 @@ func config_ui() -> void:
 	panel_container.add_theme_stylebox_override("panel", _panel_style)
 	
 	panel_container.layout_mode = 1
-	panel_container.anchors_preset = Control.PRESET_CENTER_TOP
-	panel_container.anchor_left = 0.5
-	panel_container.anchor_right = 0.5
-	panel_container.anchor_top = 0.0
-	panel_container.anchor_bottom = 0.0
-	panel_container.offset_left = 0.0
-	panel_container.offset_right = 0.0
 	panel_container.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	panel_container.grow_vertical = Control.GROW_DIRECTION_END
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	panel_container.offset_top = 12.0
 	
 	var vbox: VBoxContainer = VBoxContainer.new()
@@ -183,8 +177,13 @@ func start_countdown(disease: Disease, afflicted_player: CharacterBody2D = null)
 	panel_container.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	# Asegurar pivote centrado
+	panel_container.scale = Vector2.ONE
+	panel_container.rotation = 0.0
 	panel_container.reset_size()
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
+	panel_container.size = container_size
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	panel_container.offset_top = 12.0
 	panel_container.pivot_offset = Vector2(container_size.x / 2.0, container_size.y / 2.0)
 	
 	if is_inside_tree():
@@ -264,8 +263,13 @@ func _start_critical_pulse() -> void:
 	if _pulse_tween and _pulse_tween.is_valid():
 		_pulse_tween.kill()
 	
+	panel_container.scale = Vector2.ONE
+	panel_container.rotation = 0.0
 	panel_container.reset_size()
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
+	panel_container.size = container_size
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	panel_container.offset_top = 12.0
 	panel_container.pivot_offset = Vector2(container_size.x / 2.0, container_size.y / 2.0)
 	
 	_pulse_tween = create_tween().set_loops()
