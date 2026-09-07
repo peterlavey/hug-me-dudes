@@ -49,16 +49,9 @@ func config_ui() -> void:
 	panel_container.add_theme_stylebox_override("panel", style)
 	
 	panel_container.layout_mode = 1
-	panel_container.anchors_preset = Control.PRESET_CENTER_TOP
-	panel_container.anchor_left = 0.5
-	panel_container.anchor_right = 0.5
-	panel_container.anchor_top = 0.0
-	panel_container.anchor_bottom = 0.0
-	panel_container.offset_left = 0.0
-	panel_container.offset_right = 0.0
 	panel_container.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	panel_container.grow_vertical = Control.GROW_DIRECTION_END
-	panel_container.offset_top = 35.0
+	panel_container.grow_vertical = Control.GROW_DIRECTION_BOTH
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -164,6 +157,7 @@ func show_round_winner(winner_name: String, current_wins: int = -1, target_wins:
 	
 	# Asegurar tamaño y pivote centrado para las animaciones y partículas
 	panel_container.reset_size()
+	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
 	if panel_container.size.x > container_size.x:
 		container_size = panel_container.size

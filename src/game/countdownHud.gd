@@ -20,6 +20,8 @@ var _entry_tween: Tween
 var _pulse_tween: Tween
 var _fade_tween: Tween
 
+const TOP_OFFSET: float = 50.0
+
 const COLOR_NORMAL_TEXT: Color = Color(1.0, 0.92, 0.35, 1.0)
 const COLOR_NORMAL_BORDER: Color = Color(0.95, 0.78, 0.15, 1.0)
 const COLOR_NORMAL_FILL: Color = Color(0.95, 0.78, 0.15, 1.0)
@@ -87,7 +89,7 @@ func config_ui() -> void:
 	panel_container.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	panel_container.grow_vertical = Control.GROW_DIRECTION_END
 	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	panel_container.offset_top = 12.0
+	panel_container.offset_top = TOP_OFFSET
 	
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -183,7 +185,7 @@ func start_countdown(disease: Disease, afflicted_player: CharacterBody2D = null)
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
 	panel_container.size = container_size
 	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	panel_container.offset_top = 12.0
+	panel_container.offset_top = TOP_OFFSET
 	panel_container.pivot_offset = Vector2(container_size.x / 2.0, container_size.y / 2.0)
 	
 	if is_inside_tree():
@@ -254,7 +256,7 @@ func _start_critical_pulse() -> void:
 	var container_size: Vector2 = panel_container.get_combined_minimum_size()
 	panel_container.size = container_size
 	panel_container.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	panel_container.offset_top = 12.0
+	panel_container.offset_top = TOP_OFFSET
 	panel_container.pivot_offset = Vector2(container_size.x / 2.0, container_size.y / 2.0)
 	
 	_pulse_tween = create_tween().set_loops()
